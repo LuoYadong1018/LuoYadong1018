@@ -7,7 +7,7 @@ date: 2019-09-26 15:12:26
 ### 个人信息
 ***********
 <div style="float:right">
-        <img src="https://cdn.jsdelivr.net/gh/LuoYadong1018/cdn@1.2/img/auther.jpg" width="200">
+        <img src="https://cdn.jsdelivr.net/gh/LuoYadong1018/cdn@1.2/img/auther.jpg">
 </div>
 
    - 罗亚东/男/河南鹿邑
@@ -45,8 +45,10 @@ date: 2019-09-26 15:12:26
    - 兴趣：听歌，跑步，系统安装，电脑维修，手机维修
 ***********
 ### 项目经历
-**********
-#### 项目一
+************
+<h4 style="float:left">项目一</h4>
+<h4 style="float:right">2019年9月</h4>
+<br/><br/><br/>
 
 #### 项目二
 
