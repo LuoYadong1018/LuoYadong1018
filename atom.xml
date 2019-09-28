@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://LuoYadong1018.github.io/"/>
-  <updated>2019-09-27T04:12:14.744Z</updated>
+  <updated>2019-09-28T10:05:35.375Z</updated>
   <id>http://LuoYadong1018.github.io/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bootstrap</title>
+    <link href="http://LuoYadong1018.github.io/2019/09/28/bootstrap/"/>
+    <id>http://LuoYadong1018.github.io/2019/09/28/bootstrap/</id>
+    <published>2019-09-28T10:05:35.000Z</published>
+    <updated>2019-09-28T10:05:35.375Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>邮箱正则表达式</title>
@@ -43,31 +58,32 @@
   </entry>
   
   <entry>
-    <title>hello-world</title>
-    <link href="http://LuoYadong1018.github.io/2019/09/26/hello-world/"/>
-    <id>http://LuoYadong1018.github.io/2019/09/26/hello-world/</id>
+    <title>我的Bootstrap4 学习笔记</title>
+    <link href="http://LuoYadong1018.github.io/2019/09/26/Bootstrap4/"/>
+    <id>http://LuoYadong1018.github.io/2019/09/26/Bootstrap4/</id>
     <published>2019-09-26T06:16:19.825Z</published>
-    <updated>2019-09-27T14:28:17.870Z</updated>
+    <updated>2019-09-28T10:09:11.026Z</updated>
     
-    <content type="html"><![CDATA[<p> /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="1、Bootstraps安装使用"><a href="#1、Bootstraps安装使用" class="headerlink" title="1、Bootstraps安装使用"></a>1、Bootstraps安装使用</h2><h3 id="Bootstrap4-CDN"><a href="#Bootstrap4-CDN" class="headerlink" title="Bootstrap4 CDN"></a><a href="https://getbootstrap.com" target="_blank" rel="noopener">Bootstrap4 CDN</a></h3><p>&lt;!–新Bootstrap 4 核心CSS文件 –&gt;<br><link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"><br></p><p>&lt;!–Jquery文件。务必在bootstrap.min.js之前引入 –&gt;<br><script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script></p><p>&lt;!–bootstrap.bundle.min.js 用于弹窗、提示下拉菜单，包含了popper.min.js–&gt;<br><script src="https:cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script><br></p><p>&lt;!–最新的Bootstrap4 核心JavaScript文件 –&gt;<br><script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script></p><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><br>width=device-width 表示宽度是设备屏幕的宽度<br>initial-scale=1 表示初始的缩放比例<br>shrink-to-fit=no 自动适应手机屏幕宽度<br><h3 id="容器类"><a href="#容器类" class="headerlink" title="容器类"></a>容器类</h3><ul><li>.container类用于固定宽度并支持响应式布局的容器。<br><img src></li><li>.container-fluid类用于100%宽度，占据全部视口（viewport）的容器。<br><img src><h2 id="2、Bootstrap4-网格系统"><a href="#2、Bootstrap4-网格系统" class="headerlink" title="2、Bootstrap4 网格系统"></a>2、Bootstrap4 网格系统</h2><h3 id="网格类-5个类"><a href="#网格类-5个类" class="headerlink" title="网格类(5个类)"></a>网格类(5个类)</h3></li><li>.col- 针对所有设备</li><li>.col-sm- 平板-屏幕宽度等于或大于576px</li><li>.col-md- 桌面显示器屏幕-屏幕宽度等于或大于768px</li><li>.col-lg- 大桌面显示器 宽度等于或大于992px</li><li>.col-xl- 屏幕宽度等于或大于1200px<h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3></li><li>网格每一行需要放在设置.container(固定宽度)或.container-fluid(全屏宽度)类的容器中，以便自动设置外边距与内边距。</li><li>使用行来创建水平列组。</li><li>内容需要放在列中，并且只有列可以是行的直接子节点。</li><li>预定义的类如.row,.col-sm-4可用于快速制作网格布局。</li><li>列通过填充创建内容的间隙。这个间隙是通过.rows类上的负边距设置第一行和最后一行的偏移。</li><li>网格列是通过跨越指定的12个列来创建。</li><li>偏移列通过offset-*-*类来设置。第一个星号是sm(576px),md(768px),lg(992px),xl(1200px)。第二个星号是1～11的数字。</li><li>例如：.offset-md-*类。将一个列的左外边距（margin）增加<em>列<br>即把.col-md-\</em>往右移四列格。<h2 id="3、BootStrap4-文字排版"><a href="#3、BootStrap4-文字排版" class="headerlink" title="3、BootStrap4 文字排版"></a>3、BootStrap4 文字排版</h2><h3 id="默认设置"><a href="#默认设置" class="headerlink" title="默认设置"></a>默认设置</h3></li><li>默认的font-size为16px，line-height为1.5。</li><li>默认的font-family为Helvetica Neue。</li><li>所有的&lt;p&gt;元素margin-top:0、margin-bottom:1rem(16px)。</li><li>&lt;h1&gt;(2.5rem = 40px)、&lt;h2&gt;(2rem = 32px)、&lt;h3&gt;(1.75rem = 28px)、&lt;h4&gt;(1.5rem = 24px)、&lt;h5&gt;(1.25rem = 20px)、&lt;h6&gt;(1rem = 16px)</li><li>Display标题类可以输出更大更粗的字体样式,.display-1~.display-4字体依次减小。</li><li>&lt;small&gt;元素用于创建字号更小的颜色更浅的文本，&lt;mark&gt;为黄色背景及有一定的内边距，&lt;abbr&gt;为显示在文本底部的一条虚线边框，&lt;blockquote&gt;用于引用内容。<h2 id="4、Bootstrap4-颜色"><a href="#4、Bootstrap4-颜色" class="headerlink" title="4、Bootstrap4 颜色"></a>4、Bootstrap4 颜色</h2></li><li>文本颜色类<blockquote><p>.text-muted:柔和的文本<br><br>.text-primary:重要的文本（蓝色）<br><br>.text-success:执行成功的文本（绿色）<br><br>.text-info:代表一些提示信息的文本（靛青色）<br><br>.text-warning:警告文本（黄色）<br><br>.text-danger危险操作文本（红色）<br><br>.text-secondary:副标题（灰色）<br><br>.text-dark:深灰色字体<br><br>.text-light:浅灰色文本文本（白色背景看不清楚）<br><br>.text-white:白色文本（白色背景看不清楚）<br></p></blockquote></li><li>背景颜色<blockquote><p>bg-primary:重要的背景颜色（蓝色）<br><br>bg-success:执行成功背景颜色（绿色）<br><br>bg-info:信息提示背景颜色（浅蓝色）<br><br>bg-waring:警告背景颜色（黄色）<br><br>bg-danger:危险背景颜色（红色）<br><br>bg-secondary:副标题背景颜色（灰色）<br><br>bg-dark:深灰色背景颜色<br><br>bg-light:浅灰色背景颜色<br></p></blockquote></li></ul><h2 id="5、Bootstrap4-表格"><a href="#5、Bootstrap4-表格" class="headerlink" title="5、Bootstrap4 表格"></a>5、Bootstrap4 表格</h2><ul><li>基础表格 .table 例：</li><li>条纹表格 .table-striped </li><li>带边框表格 .table-bordered </li><li>鼠标悬停状态表格 .table-hover 为表格的每行添加鼠标悬停效果（灰色背景）</li><li>黑色背景表格 .table-dark 为表格添加黑色背景</li><li>黑色条纹表格 .table-dark和.table-striped 联合使用</li><li>鼠标悬停效果-黑色背景表格.table-dark和.table-hover 联合使用</li><li>指定意义的颜色类设置表格行或者单元格设置颜色 .table-*（颜色：primary、success、danger…）</li><li>表头颜色 .thead-dark给表头添加黑色背景。.thead-light 用于给表添加灰色背景。</li><li>较小的表格 .table-sm  通过减少内边距来设置较小的表格</li><li>响应式表格.table-responsive在屏幕小于992px时创建水平滚钉条，如果可视区宽度大于992px则显示不同效果（没有滚动条）<blockquote><p>.table-responsive-sm  屏幕宽度小于576px<br>.table-responsive-md  屏幕宽度小于768px<br>.table-responsive-lg  屏幕宽度小于992px<br>.table-responsive-xl  屏幕宽度小于1200px</p></blockquote></li></ul><h2 id="6、Bootstrap4-图像形状"><a href="#6、Bootstrap4-图像形状" class="headerlink" title="6、Bootstrap4 图像形状"></a>6、Bootstrap4 图像形状</h2><ul><li>圆角图片 .rounded<blockquote><p>&lt;img src= “lyd.jpg” class=”rounded” alt=”**”&gt;</p></blockquote></li><li>椭圆图片 .rounded-circle</li><li>缩略图(图片有边框) .img-thumbnail</li><li>图片对齐方式 .float-right(右对齐) .float-left(左对齐)</li><li>响应式图片 .img-fluid(max-width:100%，height:auto)</li></ul><h2 id="7、Bootstrap4-Jumbotron"><a href="#7、Bootstrap4-Jumbotron" class="headerlink" title="7、Bootstrap4 Jumbotron"></a>7、Bootstrap4 Jumbotron</h2><ul><li>&lt;div&gt;元素中添加.Jumbotron类（超大屏幕）创建一个超大灰色背景框，</li><li>全屏幕的Jumbotron：在.jumbotron-fluid类里的div添加.container或.container-fluid类实现<h2 id="8、信息提示框"><a href="#8、信息提示框" class="headerlink" title="8、信息提示框"></a>8、信息提示框</h2></li><li>提示框在.alert类后面添加.ale+rt-success, .alert-info, .alert-warning, .alert-danger, .alert-primary, .alert-secondary, .alert-light,. alert-dark类实现</li><li>提示框添加链接： 提示框中在链接的标签上添加.alert-link类</li><li>关闭提示框 在提示框的div中添加.alert-dismissible 然后在关闭按钮的链接上添加class=”close”和data-dismiss=”alert”类。</li><li>提示框动画 .fade和.show类用于设置提示框在关闭时的淡出和淡入效果。&lt;div class=”alert alert-danger alert-dismissible fade show”&gt;</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt; /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/&lt;/p&gt;
-
+        &lt;h2 id=&quot;1、Bootstraps安装使用&quot;&gt;&lt;a href=&quot;#1、Bootstraps安装使用&quot; class=&quot;headerlink&quot; title=&quot;1、Bootstraps安装使用&quot;&gt;&lt;/a&gt;1、Bootstraps安装使用&lt;/h2&gt;&lt;h3 id=&quot;Bootstrap
       
     
     </summary>
     
     
-      <category term="技术" scheme="http://LuoYadong1018.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="笔记" scheme="http://LuoYadong1018.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="web" scheme="http://LuoYadong1018.github.io/tags/web/"/>
+      <category term="HTML/CSS" scheme="http://LuoYadong1018.github.io/tags/HTML-CSS/"/>
     
       <category term="悦读" scheme="http://LuoYadong1018.github.io/tags/%E6%82%A6%E8%AF%BB/"/>
+    
+      <category term="前端组件库" scheme="http://LuoYadong1018.github.io/tags/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6%E5%BA%93/"/>
     
   </entry>
   
