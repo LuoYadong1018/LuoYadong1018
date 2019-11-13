@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Never Give Up">
 <meta property="og:description" content="1、数据库基本操作 选择要操作的数据库 12world:数据库名use world;  显示已存在的数据库列表 1show databases;  显示指定数据库下的表的信息 1show tables;  显示指定表的列的信息 12world.country:数据库名.表名show columns from world.country;  显示指定表的索引信息 12world.country:数据">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-13T02:11:00.588Z">
+<meta property="og:updated_time" content="2019-11-13T02:15:28.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL">
 <meta name="twitter:description" content="1、数据库基本操作 选择要操作的数据库 12world:数据库名use world;  显示已存在的数据库列表 1show databases;  显示指定数据库下的表的信息 1show tables;  显示指定表的列的信息 12world.country:数据库名.表名show columns from world.country;  显示指定表的索引信息 12world.country:数据">
@@ -495,16 +495,16 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table test.student add fulltext index_name(StuNo);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>加上关键字ignore创建的唯一索引和主键，在插入重复数据时，会直接过滤掉重复数据，并且不会报错，否则就会抛出错误。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter ignore table test.student add primary key(ID);</span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter ignore table test.student add unique index index_name(StuNo);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter ignore table test.student add primary key(ID);</span><br><span class="line"></span><br><span class="line">alter ignore table test.student add unique index index_name(StuNo);</span><br></pre></td></tr></table></figure>
 
 <h2 id="8、事务"><a href="#8、事务" class="headerlink" title="8、事务"></a>8、事务</h2><ul>
-<li><p>关闭自动提交事务</p>
+<li>关闭自动提交事务</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set autocommit=0;</span><br></pre></td></tr></table></figure>
-</li>
+
+<ul>
 <li><p>开启自动提交事务，默认为开启。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set autocommit=1;</span><br></pre></td></tr></table></figure>
 </li>
@@ -567,7 +567,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年11月13日 10:11</p>
+        <p>最后更新： 2019年11月13日 10:15</p>
         <p>原始链接： <a class="post-url" href="/2019/09/28/mysql/" title="MySQL">http://luoyd.cn/2019/09/28/mysql/</a></p>
         <footer>
             <a href="http://luoyd.cn">
