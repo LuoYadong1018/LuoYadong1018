@@ -1,0 +1,105 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-image:url(../img/timg1.gif);
+}
+#wrap {
+	height: 600px;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+	display: flex;
+}
+#foot {
+	width: 100%;
+	height: 100px;
+	opacity: 0.5;
+	position: relative;
+	display: flex;
+}
+#wrap .logGet {
+	height: 408px;
+	width: 368px;  
+	position: absolute;
+	background-color: #FFFFFF;
+	opacity: 0.5;
+	top: 20%;
+	right: 15%;
+	border-top-right-radius: 10%;
+	border-top-left-radius:10%;
+	border-bottom-left-radius: 10%;
+	border-bottom-right-radius: 10%;
+}
+.logC button {
+	width: 100%;
+	height: 45px;
+	background-color: #ee7700;
+	border: none;
+	color: white;
+	font-size: 18px;
+}
+.logGet .logD.logDtip .p1 {
+	display: inline-block;
+	font-size: 28px;
+	margin-top: 30px;
+	width: 86%;
+	text-align: center;
+}
+#wrap .logGet .logD.logDtip {
+	width: 86%;
+	border-bottom: 1px solid #ee7700;
+	margin-bottom: 60px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.logGet .lgD img {
+	position: absolute;
+	top: 12px;
+	left: 8px;
+}
+.logGet .lgD input {
+	width: 100%;
+	height: 42px;
+	text-indent: 1rem;
+}
+#wrap .logGet .lgD {
+	width: 86%;
+	position: relative;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#wrap .logGet .logC {
+	width: 86%;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+.title {
+	font-family: "宋体";
+	color: #FFFFFF;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);  /* 使用css3的transform来实现 */
+	font-size: 36px;
+	height: 40px;
+	width: 30%;
+}
+.copyright {
+	font-family: "宋体";
+	color: #FFFFFF;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);  /* 使用css3的transform来实现 */
+	height: 60px;
+	width: 40%;
+	text-align:center;
+}
