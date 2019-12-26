@@ -9,7 +9,7 @@
     <meta name="keywords" content="lyd,lyd's Blog">
   
   <meta name="description" content="Mybatis-Plus特性   特点 概述    无入侵 只增强不做改变，引入之后现有工程不产生影响   损耗小 启动时自动注入基本CURD，性能基本无损耗，直接面向对象操作   强大的CRUD 操作 内置通用Mapper、Service，通过少量配置即可实现单表大部分 CRUD操作，更有强大的条件构造器，满足各类使用需求   支持Lambda形式调用 通过Lambda表达式，方便的编写各类">
-<meta name="keywords" content="持久层框架,Mybatis-plus,笔记,springboot">
+<meta name="keywords" content="笔记,持久层框架,Mybatis-plus,springboot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mybatis-plus">
 <meta property="og:url" content="http://luoyd.cn/2019/12/24/Mybatis-plus/index.html">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://mp.baomidou.com/img/logo.png">
 <meta property="og:image" content="https://mp.baomidou.com/img/mybatis-plus-framework.jpg">
 <meta property="og:image" content="https://mp.baomidou.com/img/custom-fields.png">
-<meta property="og:updated_time" content="2019-12-24T06:42:52.618Z">
+<meta property="og:updated_time" content="2019-12-26T00:50:38.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mybatis-plus">
 <meta name="twitter:description" content="Mybatis-Plus特性   特点 概述    无入侵 只增强不做改变，引入之后现有工程不产生影响   损耗小 启动时自动注入基本CURD，性能基本无损耗，直接面向对象操作   强大的CRUD 操作 内置通用Mapper、Service，通过少量配置即可实现单表大部分 CRUD操作，更有强大的条件构造器，满足各类使用需求   支持Lambda形式调用 通过Lambda表达式，方便的编写各类">
@@ -210,31 +210,35 @@
 
 </li>
 </ul>
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><ul>
-<li><p>在SpringBoot启动类中添加@MapperScan注解，扫描Mapper文件夹</p>
+<h4 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h4><ul>
+<li>在SpringBoot启动类中添加@MapperScan注解，扫描Mapper文件夹</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">@MapperScan(&quot;com.baomidou.mybatisplus.samples.quickstart.mapper&quot;)</span><br><span class="line">public class Application &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(QuickStartApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在application.yml配置文件中添加Mysql数据库相关配置</p>
+
+<ul>
+<li>在application.yml配置文件中添加Mysql数据库相关配置</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> # DataSource Config</span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    driver-class-name: org.h2.Driver</span><br><span class="line">    schema: classpath:db/schema-h2.sql</span><br><span class="line">    data: classpath:db/data-h2.sql</span><br><span class="line">    url: jdbc:h2:mem:test</span><br><span class="line">    username: root</span><br><span class="line">    password: test</span><br></pre></td></tr></table></figure>
 
-</li>
+<h4 id="3、测试"><a href="#3、测试" class="headerlink" title="3、测试"></a>3、测试</h4><ul>
+<li>实体类</li>
 </ul>
-<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><ul>
-<li><p>实体类</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Data</span><br><span class="line">public class User &#123;</span><br><span class="line">    private Long id;</span><br><span class="line">    private String name;</span><br><span class="line">    private Integer age;</span><br><span class="line">    private String email;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Mapper类</p>
+
+<ul>
+<li>Mapper类</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface UserMapper extends BaseMapper&lt;User&gt; &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>测试类</p>
+
+<ul>
+<li>测试类</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">@SpringBootTest</span><br><span class="line">public class SampleTest &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private UserMapper userMapper;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void testSelect() &#123;</span><br><span class="line">        System.out.println((&quot;----- selectAll method test ------&quot;));</span><br><span class="line">        List&lt;User&gt; userList = userMapper.selectList(null);</span><br><span class="line">        Assert.assertEquals(5, userList.size());</span><br><span class="line">        userList.forEach(System.out::println);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
 <blockquote>
 <p>UserMapper中的selectList()方法的参数为MP内置的条件封装Wrapper，所以不填写即无任何条件</p>
 </blockquote>
-<h4 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h4><h5 id="TableName"><a href="#TableName" class="headerlink" title="@TableName"></a>@TableName</h5><ul>
+<h4 id="4、注解"><a href="#4、注解" class="headerlink" title="4、注解"></a>4、注解</h4><h5 id="4-1-TableName"><a href="#4-1-TableName" class="headerlink" title="4.1 @TableName"></a>4.1 @TableName</h5><ul>
 <li>表名注解</li>
 </ul>
 <table>
@@ -297,7 +301,7 @@
 <p>2、定义在<code>insert</code>和<code>update</code>sql的<code>#{property}</code>里的<code>property</code>后面(例:#{<code>property</code>,<code>typehandler=xxx.xxx.xxx</code>}),只作用于设置值而除了这两种直接指定<code>typeHandler</code>,mybatis有一个全局的扫描你自己的<code>typeHandler</code>包的配置,这是根据你的<code>property</code>的类型去找<code>typeHandler</code>并使用这个属性的作用就是:如果你的<code>property</code>类型… todo</p>
 </blockquote>
 </blockquote>
-<h5 id="TableId"><a href="#TableId" class="headerlink" title="@TableId"></a>@TableId</h5><ul>
+<h5 id="4-2-TableId"><a href="#4-2-TableId" class="headerlink" title="4.2 @TableId"></a>4.2 @TableId</h5><ul>
 <li>主键注解</li>
 </ul>
 <table>
@@ -325,7 +329,7 @@
 <td>主键类型</td>
 </tr>
 </tbody></table>
-<h6 id="IdType"><a href="#IdType" class="headerlink" title="IdType"></a>IdType</h6><table>
+<h6 id="4-2-1-IdType"><a href="#4-2-1-IdType" class="headerlink" title="4.2.1 IdType"></a>4.2.1 IdType</h6><table>
 <thead>
 <tr>
 <th>值</th>
@@ -357,7 +361,7 @@
 <td>分布式全局唯一ID字符串类型</td>
 </tr>
 </tbody></table>
-<h5 id="TableField"><a href="#TableField" class="headerlink" title="@TableField"></a>@TableField</h5><ul>
+<h5 id="4-3-TableField"><a href="#4-3-TableField" class="headerlink" title="4.3 @TableField"></a>4.3 @TableField</h5><ul>
 <li>字段注解</li>
 </ul>
 <table>
@@ -448,7 +452,7 @@
 <td>是否保持使用全局的 format 进行处理(@since 3.1.1)</td>
 </tr>
 </tbody></table>
-<h6 id="FiledStrategy"><a href="#FiledStrategy" class="headerlink" title="FiledStrategy"></a>FiledStrategy</h6><table>
+<h6 id="4-3-1-FiledStrategy"><a href="#4-3-1-FiledStrategy" class="headerlink" title="4.3.1 FiledStrategy"></a>4.3.1 FiledStrategy</h6><table>
 <thead>
 <tr>
 <th>值</th>
@@ -472,7 +476,7 @@
 <td>追随全局配置</td>
 </tr>
 </tbody></table>
-<h6 id="FileFill"><a href="#FileFill" class="headerlink" title="FileFill"></a>FileFill</h6><table>
+<h6 id="4-3-2-FileFill"><a href="#4-3-2-FileFill" class="headerlink" title="4.3.2 FileFill"></a>4.3.2 FileFill</h6><table>
 <thead>
 <tr>
 <th>值</th>
@@ -496,13 +500,13 @@
 <td>插入和更新时填充字段</td>
 </tr>
 </tbody></table>
-<h5 id="Version"><a href="#Version" class="headerlink" title="@Version"></a>@Version</h5><ul>
+<h5 id="4-4-Version"><a href="#4-4-Version" class="headerlink" title="4.4 @Version"></a>4.4 @Version</h5><ul>
 <li>乐观锁注解、标记@version在字段上</li>
 </ul>
-<h5 id="EnumValue"><a href="#EnumValue" class="headerlink" title="EnumValue"></a>EnumValue</h5><ul>
+<h5 id="4-4-1-EnumValue"><a href="#4-4-1-EnumValue" class="headerlink" title="4.4.1 EnumValue"></a>4.4.1 EnumValue</h5><ul>
 <li>通枚举类注解（注解在枚举字段上）</li>
 </ul>
-<h5 id="TableLogic"><a href="#TableLogic" class="headerlink" title="TableLogic"></a>TableLogic</h5><ul>
+<h5 id="4-4-2-TableLogic"><a href="#4-4-2-TableLogic" class="headerlink" title="4.4.2 TableLogic"></a>4.4.2 TableLogic</h5><ul>
 <li>表字段逻辑处理注解（逻辑删除）</li>
 </ul>
 <table>
@@ -530,7 +534,7 @@
 <td>逻辑删除值</td>
 </tr>
 </tbody></table>
-<h5 id="SqlParser"><a href="#SqlParser" class="headerlink" title="SqlParser"></a>SqlParser</h5><ul>
+<h5 id="4-4-3-SqlParser"><a href="#4-4-3-SqlParser" class="headerlink" title="4.4.3 SqlParser"></a>4.4.3 SqlParser</h5><ul>
 <li>租户注解(3.1.1开始支持注解在mapper上)</li>
 </ul>
 <table>
@@ -551,7 +555,7 @@
 <td>true: 表示过滤SQL解析，即不会进入ISqlParser解析链，否则会进解析链并追加例如tenant_id等条件</td>
 </tr>
 </tbody></table>
-<h5 id="keySequence"><a href="#keySequence" class="headerlink" title="@keySequence"></a>@keySequence</h5><ul>
+<h5 id="4-5-keySequence"><a href="#4-5-keySequence" class="headerlink" title="4.5 @keySequence"></a>4.5 @keySequence</h5><ul>
 <li>序列主键策略Oracle</li>
 </ul>
 <table>
@@ -579,7 +583,7 @@
 <td>id的类型, 可以指定String.class，这样返回的Sequence值是字符串”1”</td>
 </tr>
 </tbody></table>
-<h3 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h3><h4 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a>代码生成器</h4><h5 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h5><ul>
+<h3 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h3><h4 id="1、代码生成器"><a href="#1、代码生成器" class="headerlink" title="1、代码生成器"></a>1、代码生成器</h4><h5 id="1-1-添加依赖"><a href="#1-1-添加依赖" class="headerlink" title="1.1 添加依赖"></a>1.1 添加依赖</h5><ul>
 <li>添加代码生成器依赖</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-plus-generator&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.3.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
@@ -606,7 +610,7 @@
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">AutoGenerator generator = new AutoGenerator();</span><br><span class="line"></span><br><span class="line">// set freemarker engine</span><br><span class="line">generator.setTemplateEngine(new FreemarkerTemplateEngine());</span><br><span class="line"></span><br><span class="line">// set beetl engine</span><br><span class="line">generator.setTemplateEngine(new BeetlTemplateEngine());</span><br><span class="line"></span><br><span class="line">// set custom engine (reference class is your custom engine class)</span><br><span class="line">generator.setTemplateEngine(new CustomTemplateEngine());</span><br><span class="line"></span><br><span class="line">// other config</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
-<h5 id="编写配置"><a href="#编写配置" class="headerlink" title="编写配置"></a>编写配置</h5><ul>
+<h5 id="1-2-编写配置"><a href="#1-2-编写配置" class="headerlink" title="1.2  编写配置"></a>1.2  编写配置</h5><ul>
 <li>配置GlobalConfig</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GlobalConfig globalConfig = new GlobalConfig();</span><br><span class="line">globalConfig.setOutputDir(System.getProperty(&quot;user.dir&quot;) + &quot;/src/main/java&quot;);</span><br><span class="line">globalConfig.setAuthor(&quot;jobob&quot;);</span><br><span class="line">globalConfig.setOpen(false);</span><br></pre></td></tr></table></figure>
@@ -616,18 +620,18 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DataSourceConfig dataSourceConfig = new DataSourceConfig();</span><br><span class="line">dataSourceConfig.setUrl(&quot;jdbc:mysql://localhost:3306/ant?useUnicode=true&amp;useSSL=false&amp;characterEncoding=utf8&quot;);</span><br><span class="line">dataSourceConfig.setDriverName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">dataSourceConfig.setUsername(&quot;root&quot;);</span><br><span class="line">dataSourceConfig.setPassword(&quot;password&quot;);</span><br></pre></td></tr></table></figure>
 
-<h5 id="自定义模板引擎"><a href="#自定义模板引擎" class="headerlink" title="自定义模板引擎"></a>自定义模板引擎</h5><p>请继承类 com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine</p>
-<h5 id="自定义代码模板"><a href="#自定义代码模板" class="headerlink" title="自定义代码模板"></a>自定义代码模板</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//指定自定义模板路径, 位置：/resources/templates/entity2.java.ftl(或者是.vm)</span><br><span class="line">//注意不要带上.ftl(或者是.vm), 会根据使用的模板引擎自动识别</span><br><span class="line">TemplateConfig templateConfig = new TemplateConfig()</span><br><span class="line">    .setEntity(&quot;templates/entity2.java&quot;);</span><br><span class="line"></span><br><span class="line">AutoGenerator mpg = new AutoGenerator();</span><br><span class="line">//配置自定义模板</span><br><span class="line">mpg.setTemplate(templateConfig);</span><br></pre></td></tr></table></figure>
+<h5 id="1-3-自定义模板引擎"><a href="#1-3-自定义模板引擎" class="headerlink" title="1.3 自定义模板引擎"></a>1.3 自定义模板引擎</h5><p>请继承类 com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine</p>
+<h5 id="1-4-自定义代码模板"><a href="#1-4-自定义代码模板" class="headerlink" title="1.4 自定义代码模板"></a>1.4 自定义代码模板</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//指定自定义模板路径, 位置：/resources/templates/entity2.java.ftl(或者是.vm)</span><br><span class="line">//注意不要带上.ftl(或者是.vm), 会根据使用的模板引擎自动识别</span><br><span class="line">TemplateConfig templateConfig = new TemplateConfig()</span><br><span class="line">    .setEntity(&quot;templates/entity2.java&quot;);</span><br><span class="line"></span><br><span class="line">AutoGenerator mpg = new AutoGenerator();</span><br><span class="line">//配置自定义模板</span><br><span class="line">mpg.setTemplate(templateConfig);</span><br></pre></td></tr></table></figure>
 
-<h5 id="自定义属性注入"><a href="#自定义属性注入" class="headerlink" title="自定义属性注入"></a>自定义属性注入</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">InjectionConfig injectionConfig = new InjectionConfig() &#123;</span><br><span class="line">    //自定义属性注入:abc</span><br><span class="line">    //在.ftl(或者是.vm)模板中，通过$&#123;cfg.abc&#125;获取属性</span><br><span class="line">    @Override</span><br><span class="line">    public void initMap() &#123;</span><br><span class="line">        Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();</span><br><span class="line">        map.put(&quot;abc&quot;, this.getConfig().getGlobalConfig().getAuthor() + &quot;-mp&quot;);</span><br><span class="line">        this.setMap(map);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">AutoGenerator mpg = new AutoGenerator();</span><br><span class="line">//配置自定义属性注入</span><br><span class="line">mpg.setCfg(injectionConfig);</span><br></pre></td></tr></table></figure>
+<h5 id="1-5-自定义属性注入"><a href="#1-5-自定义属性注入" class="headerlink" title="1.5 自定义属性注入"></a>1.5 自定义属性注入</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">InjectionConfig injectionConfig = new InjectionConfig() &#123;</span><br><span class="line">    //自定义属性注入:abc</span><br><span class="line">    //在.ftl(或者是.vm)模板中，通过$&#123;cfg.abc&#125;获取属性</span><br><span class="line">    @Override</span><br><span class="line">    public void initMap() &#123;</span><br><span class="line">        Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();</span><br><span class="line">        map.put(&quot;abc&quot;, this.getConfig().getGlobalConfig().getAuthor() + &quot;-mp&quot;);</span><br><span class="line">        this.setMap(map);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">AutoGenerator mpg = new AutoGenerator();</span><br><span class="line">//配置自定义属性注入</span><br><span class="line">mpg.setCfg(injectionConfig);</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">entity2.java.ftl</span><br><span class="line">自定义属性注入abc=$&#123;cfg.abc&#125;</span><br><span class="line"></span><br><span class="line">entity2.java.vm</span><br><span class="line">自定义属性注入abc=$!&#123;cfg.abc&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="字段其他字段查询注入"><a href="#字段其他字段查询注入" class="headerlink" title="字段其他字段查询注入"></a>字段其他字段查询注入</h5><img src="https://mp.baomidou.com/img/custom-fields.png">
+<h5 id="1-6-字段其他字段查询注入"><a href="#1-6-字段其他字段查询注入" class="headerlink" title="1.6 字段其他字段查询注入"></a>1.6 字段其他字段查询注入</h5><img src="https://mp.baomidou.com/img/custom-fields.png" width="600" height="300">
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">new DataSourceConfig().setDbQuery(new MySqlQuery() &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 重写父类预留查询自定义字段&lt;br&gt;</span><br><span class="line">     * 这里查询的 SQL 对应父类 tableFieldsSql 的查询字段，默认不能满足你的需求请重写它&lt;br&gt;</span><br><span class="line">     * 模板中调用：  table.fields 获取所有字段信息，</span><br><span class="line">     * 然后循环字段获取 field.customMap 从 MAP 中获取注入字段如下  NULL 或者 PRIVILEGES</span><br><span class="line">     */</span><br><span class="line">    @Override</span><br><span class="line">    public String[] fieldCustom() &#123;</span><br><span class="line">        return new String[]&#123;&quot;NULL&quot;, &quot;PRIVILEGES&quot;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h4 id="CRUD接口"><a href="#CRUD接口" class="headerlink" title="CRUD接口"></a>CRUD接口</h4><h5 id="Service-CRUD接口"><a href="#Service-CRUD接口" class="headerlink" title="Service CRUD接口"></a>Service CRUD接口</h5><blockquote>
+<h4 id="2、CRUD接口"><a href="#2、CRUD接口" class="headerlink" title="2、CRUD接口"></a>2、CRUD接口</h4><h5 id="2-1-Service-CRUD接口"><a href="#2-1-Service-CRUD接口" class="headerlink" title="2.1 Service CRUD接口"></a>2.1 Service CRUD接口</h5><blockquote>
 <p>说明</p>
 <ul>
 <li>通用 Service CRUD 封装IService接口，进一步封装 CRUD 采用 get 查询单行 remove 删除 list 查询集合 page 分页 前缀命名方式区分 Mapper 层避免混淆</li>
@@ -636,7 +640,7 @@
 <li>对象 Wrapper 为 条件构造器</li>
 </ul>
 </blockquote>
-<h6 id="Save"><a href="#Save" class="headerlink" title="Save"></a>Save</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 插入一条记录（选择字段，策略插入）</span><br><span class="line">boolean save(T entity);</span><br><span class="line">// 插入（批量）</span><br><span class="line">boolean saveBatch(Collection&lt;T&gt; entityList);</span><br><span class="line">// 插入（批量）</span><br><span class="line">boolean saveBatch(Collection&lt;T&gt; entityList, int batchSize);</span><br></pre></td></tr></table></figure>
+<h6 id="2-1-1-Save"><a href="#2-1-1-Save" class="headerlink" title="2.1.1  Save"></a>2.1.1  Save</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 插入一条记录（选择字段，策略插入）</span><br><span class="line">boolean save(T entity);</span><br><span class="line">// 插入（批量）</span><br><span class="line">boolean saveBatch(Collection&lt;T&gt; entityList);</span><br><span class="line">// 插入（批量）</span><br><span class="line">boolean saveBatch(Collection&lt;T&gt; entityList, int batchSize);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>参数说明</li>
@@ -665,7 +669,7 @@
 <td>插入批次数量</td>
 </tr>
 </tbody></table>
-<h6 id="SaveOrUpdate"><a href="#SaveOrUpdate" class="headerlink" title="SaveOrUpdate"></a>SaveOrUpdate</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// TableId 注解存在更新记录，否插入一条记录</span><br><span class="line">boolean saveOrUpdate(T entity);</span><br><span class="line">// 根据updateWrapper尝试更新，否继续执行saveOrUpdate(T)方法</span><br><span class="line">boolean saveOrUpdate(T entity, Wrapper&lt;T&gt; updateWrapper);</span><br><span class="line">// 批量修改插入</span><br><span class="line">boolean saveOrUpdateBatch(Collection&lt;T&gt; entityList);</span><br><span class="line">// 批量修改插入</span><br><span class="line">boolean saveOrUpdateBatch(Collection&lt;T&gt; entityList, int batchSize);</span><br></pre></td></tr></table></figure>
+<h6 id="2-1-2-SaveOrUpdate"><a href="#2-1-2-SaveOrUpdate" class="headerlink" title="2.1.2  SaveOrUpdate"></a>2.1.2  SaveOrUpdate</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// TableId 注解存在更新记录，否插入一条记录</span><br><span class="line">boolean saveOrUpdate(T entity);</span><br><span class="line">// 根据updateWrapper尝试更新，否继续执行saveOrUpdate(T)方法</span><br><span class="line">boolean saveOrUpdate(T entity, Wrapper&lt;T&gt; updateWrapper);</span><br><span class="line">// 批量修改插入</span><br><span class="line">boolean saveOrUpdateBatch(Collection&lt;T&gt; entityList);</span><br><span class="line">// 批量修改插入</span><br><span class="line">boolean saveOrUpdateBatch(Collection&lt;T&gt; entityList, int batchSize);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>参数说明</li>
@@ -699,7 +703,7 @@
 <td>插入批次数量</td>
 </tr>
 </tbody></table>
-<h6 id="Remove"><a href="#Remove" class="headerlink" title="Remove"></a>Remove</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 根据 entity 条件，删除记录</span><br><span class="line">boolean remove(Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 根据 ID 删除</span><br><span class="line">boolean removeById(Serializable id);</span><br><span class="line">// 根据 columnMap 条件，删除记录</span><br><span class="line">boolean removeByMap(Map&lt;String, Object&gt; columnMap);</span><br><span class="line">// 删除（根据ID 批量删除）</span><br><span class="line">boolean removeByIds(Collection&lt;? extends Serializable&gt; idList);</span><br></pre></td></tr></table></figure>
+<h6 id="2-1-3-Remove"><a href="#2-1-3-Remove" class="headerlink" title="2.1.3 Remove"></a>2.1.3 Remove</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 根据 entity 条件，删除记录</span><br><span class="line">boolean remove(Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 根据 ID 删除</span><br><span class="line">boolean removeById(Serializable id);</span><br><span class="line">// 根据 columnMap 条件，删除记录</span><br><span class="line">boolean removeByMap(Map&lt;String, Object&gt; columnMap);</span><br><span class="line">// 删除（根据ID 批量删除）</span><br><span class="line">boolean removeByIds(Collection&lt;? extends Serializable&gt; idList);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>参数说明</li>
@@ -733,7 +737,7 @@
 <td>主键ID列表</td>
 </tr>
 </tbody></table>
-<h6 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 根据 UpdateWrapper 条件，更新记录 需要设置sqlset</span><br><span class="line">boolean update(Wrapper&lt;T&gt; updateWrapper);</span><br><span class="line">// 根据 whereEntity 条件，更新记录</span><br><span class="line">boolean update(T entity, Wrapper&lt;T&gt; updateWrapper);</span><br><span class="line">// 根据 ID 选择修改</span><br><span class="line">boolean updateById(T entity);</span><br><span class="line">// 根据ID 批量更新</span><br><span class="line">boolean updateBatchById(Collection&lt;T&gt; entityList);</span><br><span class="line">// 根据ID 批量更新</span><br><span class="line">boolean updateBatchById(Collection&lt;T&gt; entityList, int batchSize);</span><br></pre></td></tr></table></figure>
+<h6 id="2-1-4-Update"><a href="#2-1-4-Update" class="headerlink" title="2.1.4 Update"></a>2.1.4 Update</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 根据 UpdateWrapper 条件，更新记录 需要设置sqlset</span><br><span class="line">boolean update(Wrapper&lt;T&gt; updateWrapper);</span><br><span class="line">// 根据 whereEntity 条件，更新记录</span><br><span class="line">boolean update(T entity, Wrapper&lt;T&gt; updateWrapper);</span><br><span class="line">// 根据 ID 选择修改</span><br><span class="line">boolean updateById(T entity);</span><br><span class="line">// 根据ID 批量更新</span><br><span class="line">boolean updateBatchById(Collection&lt;T&gt; entityList);</span><br><span class="line">// 根据ID 批量更新</span><br><span class="line">boolean updateBatchById(Collection&lt;T&gt; entityList, int batchSize);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>参数说明</li>
@@ -767,7 +771,7 @@
 <td>更新批次数量</td>
 </tr>
 </tbody></table>
-<h6 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 根据 ID 查询</span><br><span class="line">T getById(Serializable id);</span><br><span class="line">// 根据 Wrapper，查询一条记录。结果集，如果是多个会抛出异常，随机取一条加上限制条件 wrapper.last(&quot;LIMIT 1&quot;)</span><br><span class="line">T getOne(Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 根据 Wrapper，查询一条记录</span><br><span class="line">T getOne(Wrapper&lt;T&gt; queryWrapper, boolean throwEx);</span><br><span class="line">// 根据 Wrapper，查询一条记录</span><br><span class="line">Map&lt;String, Object&gt; getMap(Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 根据 Wrapper，查询一条记录</span><br><span class="line">&lt;V&gt; V getObj(Wrapper&lt;T&gt; queryWrapper, Function&lt;? super Object, V&gt; mapper);</span><br></pre></td></tr></table></figure>
+<h6 id="2-1-5-Get"><a href="#2-1-5-Get" class="headerlink" title="2.1.5 Get"></a>2.1.5 Get</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 根据 ID 查询</span><br><span class="line">T getById(Serializable id);</span><br><span class="line">// 根据 Wrapper，查询一条记录。结果集，如果是多个会抛出异常，随机取一条加上限制条件 wrapper.last(&quot;LIMIT 1&quot;)</span><br><span class="line">T getOne(Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 根据 Wrapper，查询一条记录</span><br><span class="line">T getOne(Wrapper&lt;T&gt; queryWrapper, boolean throwEx);</span><br><span class="line">// 根据 Wrapper，查询一条记录</span><br><span class="line">Map&lt;String, Object&gt; getMap(Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 根据 Wrapper，查询一条记录</span><br><span class="line">&lt;V&gt; V getObj(Wrapper&lt;T&gt; queryWrapper, Function&lt;? super Object, V&gt; mapper);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>参数说明</li>
@@ -806,7 +810,7 @@
 <td>转换函数</td>
 </tr>
 </tbody></table>
-<h6 id="List"><a href="#List" class="headerlink" title="List"></a>List</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//查询所有</span><br><span class="line">List&lt;T&gt; list();</span><br><span class="line">// 查询列表</span><br><span class="line">List&lt;T&gt; list(Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 查询（根据ID 批量查询）</span><br><span class="line">Collection&lt;T&gt; listByIds(Collection&lt;? extends Serializable&gt; idList);</span><br><span class="line">// 查询（根据 columnMap 条件）</span><br><span class="line">Collection&lt;T&gt; listByMap(Map&lt;String, Object&gt; columnMap);</span><br><span class="line">// 查询所有列表</span><br><span class="line">List&lt;Map&lt;String, Object&gt;&gt; listMaps();</span><br><span class="line">// 查询列表</span><br><span class="line">List&lt;Map&lt;String, Object&gt;&gt; listMaps(Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 查询全部记录</span><br><span class="line">List&lt;Object&gt; listObjs();</span><br><span class="line">// 查询全部记录</span><br><span class="line">&lt;V&gt; List&lt;V&gt; listObjs(Function&lt;? super Object, V&gt; mapper);</span><br><span class="line">// 根据 Wrapper 条件，查询全部记录</span><br><span class="line">List&lt;Object&gt; listObjs(Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 根据 Wrapper 条件，查询全部记录</span><br><span class="line">&lt;V&gt; List&lt;V&gt; listObjs(Wrapper&lt;T&gt; queryWrapper, Function&lt;? super Object, V&gt; mapper);</span><br></pre></td></tr></table></figure>
+<h6 id="2-1-6-List"><a href="#2-1-6-List" class="headerlink" title="2.1.6 List"></a>2.1.6 List</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//查询所有</span><br><span class="line">List&lt;T&gt; list();</span><br><span class="line">// 查询列表</span><br><span class="line">List&lt;T&gt; list(Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 查询（根据ID 批量查询）</span><br><span class="line">Collection&lt;T&gt; listByIds(Collection&lt;? extends Serializable&gt; idList);</span><br><span class="line">// 查询（根据 columnMap 条件）</span><br><span class="line">Collection&lt;T&gt; listByMap(Map&lt;String, Object&gt; columnMap);</span><br><span class="line">// 查询所有列表</span><br><span class="line">List&lt;Map&lt;String, Object&gt;&gt; listMaps();</span><br><span class="line">// 查询列表</span><br><span class="line">List&lt;Map&lt;String, Object&gt;&gt; listMaps(Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 查询全部记录</span><br><span class="line">List&lt;Object&gt; listObjs();</span><br><span class="line">// 查询全部记录</span><br><span class="line">&lt;V&gt; List&lt;V&gt; listObjs(Function&lt;? super Object, V&gt; mapper);</span><br><span class="line">// 根据 Wrapper 条件，查询全部记录</span><br><span class="line">List&lt;Object&gt; listObjs(Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 根据 Wrapper 条件，查询全部记录</span><br><span class="line">&lt;V&gt; List&lt;V&gt; listObjs(Wrapper&lt;T&gt; queryWrapper, Function&lt;? super Object, V&gt; mapper);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>参数说明</li>
@@ -840,7 +844,7 @@
 <td>转换函数</td>
 </tr>
 </tbody></table>
-<h6 id="Page"><a href="#Page" class="headerlink" title="Page"></a>Page</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 无条件翻页查询</span><br><span class="line">IPage&lt;T&gt; page(IPage&lt;T&gt; page);</span><br><span class="line">// 翻页查询</span><br><span class="line">IPage&lt;T&gt; page(IPage&lt;T&gt; page, Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 无条件翻页查询</span><br><span class="line">IPage&lt;Map&lt;String, Object&gt;&gt; pageMaps(IPage&lt;T&gt; page);</span><br><span class="line">// 翻页查询</span><br><span class="line">IPage&lt;Map&lt;String, Object&gt;&gt; pageMaps(IPage&lt;T&gt; page, Wrapper&lt;T&gt; queryWrapper);</span><br></pre></td></tr></table></figure>
+<h6 id="2-1-7-Page"><a href="#2-1-7-Page" class="headerlink" title="2.1.7 Page"></a>2.1.7 Page</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 无条件翻页查询</span><br><span class="line">IPage&lt;T&gt; page(IPage&lt;T&gt; page);</span><br><span class="line">// 翻页查询</span><br><span class="line">IPage&lt;T&gt; page(IPage&lt;T&gt; page, Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 无条件翻页查询</span><br><span class="line">IPage&lt;Map&lt;String, Object&gt;&gt; pageMaps(IPage&lt;T&gt; page);</span><br><span class="line">// 翻页查询</span><br><span class="line">IPage&lt;Map&lt;String, Object&gt;&gt; pageMaps(IPage&lt;T&gt; page, Wrapper&lt;T&gt; queryWrapper);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>参数说明</li>
@@ -864,7 +868,7 @@
 <td>实体对象封装操作类QueryWrapper</td>
 </tr>
 </tbody></table>
-<h6 id="Count"><a href="#Count" class="headerlink" title="Count"></a>Count</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 查询总记录数</span><br><span class="line">int count();</span><br><span class="line">// 根据 Wrapper 条件，查询总记录数</span><br><span class="line">int count(Wrapper&lt;T&gt; queryWrapper);</span><br></pre></td></tr></table></figure>
+<h6 id="2-1-8-Count"><a href="#2-1-8-Count" class="headerlink" title="2.1.8 Count"></a>2.1.8 Count</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 查询总记录数</span><br><span class="line">int count();</span><br><span class="line">// 根据 Wrapper 条件，查询总记录数</span><br><span class="line">int count(Wrapper&lt;T&gt; queryWrapper);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>参数说明</li>
@@ -883,16 +887,17 @@
 <td>实体对象封装操作类QueryWrapper</td>
 </tr>
 </tbody></table>
-<h6 id="Chain"><a href="#Chain" class="headerlink" title="Chain"></a>Chain</h6><ul>
-<li><p>query</p>
+<h6 id="2-1-9-Chain"><a href="#2-1-9-Chain" class="headerlink" title="2.1.9  Chain"></a>2.1.9  Chain</h6><ul>
+<li>query</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 链式查询 普通</span><br><span class="line">QueryChainWrapper&lt;T&gt; query();</span><br><span class="line">// 链式查询 lambda 式。注意：不支持 Kotlin</span><br><span class="line">LambdaQueryChainWrapper&lt;T&gt; lambdaQuery(); </span><br><span class="line"></span><br><span class="line">// 示例：</span><br><span class="line">query().eq(&quot;column&quot;, value).one();</span><br><span class="line">lambdaQuery().eq(Entity::getId, value).list();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update</p>
+
+<ul>
+<li>update</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 链式更改 普通</span><br><span class="line">UpdateChainWrapper&lt;T&gt; update();</span><br><span class="line">// 链式更改 lambda 式。注意：不支持 Kotlin </span><br><span class="line">LambdaUpdateChainWrapper&lt;T&gt; lambdaUpdate();</span><br><span class="line"></span><br><span class="line">// 示例：</span><br><span class="line">update().eq(&quot;column&quot;, value).remove();</span><br><span class="line">lambdaUpdate().eq(Entity::getId, value).update(entity);</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<h5 id="Mapper-CRUD接口"><a href="#Mapper-CRUD接口" class="headerlink" title="Mapper CRUD接口"></a>Mapper CRUD接口</h5><blockquote>
+<h5 id="2-2-Mapper-CRUD接口"><a href="#2-2-Mapper-CRUD接口" class="headerlink" title="2.2 Mapper CRUD接口"></a>2.2 Mapper CRUD接口</h5><blockquote>
 <p>说明</p>
 <ul>
 <li>通用 CRUD 封装BaseMapper接口，为 Mybatis-Plus 启动时自动解析实体表关系映射转换为 Mybatis 内部对象注入容器</li>
@@ -901,7 +906,7 @@
 <li>对象Wrapper为条件构造器</li>
 </ul>
 </blockquote>
-<h6 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 插入一条记录</span><br><span class="line">int insert(T entity);</span><br></pre></td></tr></table></figure>
+<h6 id="2-2-1-Insert"><a href="#2-2-1-Insert" class="headerlink" title="2.2.1 Insert"></a>2.2.1 Insert</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 插入一条记录</span><br><span class="line">int insert(T entity);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>参数说明</li>
@@ -920,7 +925,7 @@
 <td>实体对象</td>
 </tr>
 </tbody></table>
-<h6 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 根据 entity 条件，删除记录</span><br><span class="line">int delete(@Param(Constants.WRAPPER) Wrapper&lt;T&gt; wrapper);</span><br><span class="line">// 删除（根据ID 批量删除）</span><br><span class="line">int deleteBatchIds(@Param(Constants.COLLECTION) Collection&lt;? extends Serializable&gt; idList);</span><br><span class="line">// 根据 ID 删除</span><br><span class="line">int deleteById(Serializable id);</span><br><span class="line">// 根据 columnMap 条件，删除记录</span><br><span class="line">int deleteByMap(@Param(Constants.COLUMN_MAP) Map&lt;String, Object&gt; columnMap);</span><br></pre></td></tr></table></figure>
+<h6 id="2-2-2-Delete"><a href="#2-2-2-Delete" class="headerlink" title="2.2.2 Delete"></a>2.2.2 Delete</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 根据 entity 条件，删除记录</span><br><span class="line">int delete(@Param(Constants.WRAPPER) Wrapper&lt;T&gt; wrapper);</span><br><span class="line">// 删除（根据ID 批量删除）</span><br><span class="line">int deleteBatchIds(@Param(Constants.COLLECTION) Collection&lt;? extends Serializable&gt; idList);</span><br><span class="line">// 根据 ID 删除</span><br><span class="line">int deleteById(Serializable id);</span><br><span class="line">// 根据 columnMap 条件，删除记录</span><br><span class="line">int deleteByMap(@Param(Constants.COLUMN_MAP) Map&lt;String, Object&gt; columnMap);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>参数说明</li>
@@ -954,7 +959,7 @@
 <td>表字段 map 对象</td>
 </tr>
 <tr>
-<td>###### Update</td>
+<td>###### 2.2.3 Update</td>
 <td></td>
 <td></td>
 </tr>
@@ -986,7 +991,7 @@
 <td>实体对象封装操作类（可以为 null,里面的 entity 用于生成 where 语句）</td>
 </tr>
 </tbody></table>
-<h6 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 根据 ID 查询</span><br><span class="line">T selectById(Serializable id);</span><br><span class="line">// 根据 entity 条件，查询一条记录</span><br><span class="line">T selectOne(@Param(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line"></span><br><span class="line">// 查询（根据ID 批量查询）</span><br><span class="line">List&lt;T&gt; selectBatchIds(@Param(Constants.COLLECTION) Collection&lt;? extends Serializable&gt; idList);</span><br><span class="line">// 根据 entity 条件，查询全部记录</span><br><span class="line">List&lt;T&gt; selectList(@Param(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 查询（根据 columnMap 条件）</span><br><span class="line">List&lt;T&gt; selectByMap(@Param(Constants.COLUMN_MAP) Map&lt;String, Object&gt; columnMap);</span><br><span class="line">// 根据 Wrapper 条件，查询全部记录</span><br><span class="line">List&lt;Map&lt;String, Object&gt;&gt; selectMaps(@Param(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 根据 Wrapper 条件，查询全部记录。注意： 只返回第一个字段的值</span><br><span class="line">List&lt;Object&gt; selectObjs(@Param(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line"></span><br><span class="line">// 根据 entity 条件，查询全部记录（并翻页）</span><br><span class="line">IPage&lt;T&gt; selectPage(IPage&lt;T&gt; page, @Param(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 根据 Wrapper 条件，查询全部记录（并翻页）</span><br><span class="line">IPage&lt;Map&lt;String, Object&gt;&gt; selectMapsPage(IPage&lt;T&gt; page, @Param(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 根据 Wrapper 条件，查询总记录数</span><br><span class="line">Integer selectCount(@Param(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);</span><br></pre></td></tr></table></figure>
+<h6 id="2-2-4-Select"><a href="#2-2-4-Select" class="headerlink" title="2.2.4 Select"></a>2.2.4 Select</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 根据 ID 查询</span><br><span class="line">T selectById(Serializable id);</span><br><span class="line">// 根据 entity 条件，查询一条记录</span><br><span class="line">T selectOne(@Param(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line"></span><br><span class="line">// 查询（根据ID 批量查询）</span><br><span class="line">List&lt;T&gt; selectBatchIds(@Param(Constants.COLLECTION) Collection&lt;? extends Serializable&gt; idList);</span><br><span class="line">// 根据 entity 条件，查询全部记录</span><br><span class="line">List&lt;T&gt; selectList(@Param(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 查询（根据 columnMap 条件）</span><br><span class="line">List&lt;T&gt; selectByMap(@Param(Constants.COLUMN_MAP) Map&lt;String, Object&gt; columnMap);</span><br><span class="line">// 根据 Wrapper 条件，查询全部记录</span><br><span class="line">List&lt;Map&lt;String, Object&gt;&gt; selectMaps(@Param(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 根据 Wrapper 条件，查询全部记录。注意： 只返回第一个字段的值</span><br><span class="line">List&lt;Object&gt; selectObjs(@Param(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line"></span><br><span class="line">// 根据 entity 条件，查询全部记录（并翻页）</span><br><span class="line">IPage&lt;T&gt; selectPage(IPage&lt;T&gt; page, @Param(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 根据 Wrapper 条件，查询全部记录（并翻页）</span><br><span class="line">IPage&lt;Map&lt;String, Object&gt;&gt; selectMapsPage(IPage&lt;T&gt; page, @Param(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);</span><br><span class="line">// 根据 Wrapper 条件，查询总记录数</span><br><span class="line">Integer selectCount(@Param(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>参数说明</li>
@@ -1024,21 +1029,11 @@
 <td>page</td>
 <td>分页查询条件（可以为 RowBounds.DEFAULT）</td>
 </tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>###### mapper层 选装件</td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
-<blockquote>
+<h6 id="2-2-5-mapper层-选装件"><a href="#2-2-5-mapper层-选装件" class="headerlink" title="2.2.5 mapper层 选装件"></a>2.2.5 mapper层 选装件</h6><blockquote>
 <p>说明：</p>
 <blockquote>
-<p>选装件位于 com.baomidou.mybatisplus.extension.injector.methods.additional 包下 需要配合Sql 注入器使用</p>
+<p>选装件位于 com.baomidou.mybatisplus.extension.injector.methods.additional 包下需要配合Sql 注入器使用</p>
 </blockquote>
 </blockquote>
 <ul>
@@ -1056,7 +1051,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年12月24日 14:42</p>
+        <p>最后更新： 2019年12月26日 08:50</p>
         <p>原始链接： <a class="post-url" href="/2019/12/24/Mybatis-plus/" title="Mybatis-plus">http://luoyd.cn/2019/12/24/Mybatis-plus/</a></p>
         <footer>
             <a href="http://luoyd.cn">
@@ -1161,11 +1156,11 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
+    <a href="/tags/笔记/" class="color3">笔记</a>
+      
     <a href="/tags/持久层框架/" class="color1">持久层框架</a>
       
     <a href="/tags/Mybatis-plus/" class="color3">Mybatis-plus</a>
-      
-    <a href="/tags/笔记/" class="color3">笔记</a>
       
     <a href="/tags/springboot/" class="color1">springboot</a>
       
@@ -1180,7 +1175,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mybatis-Plus"><span class="post-toc-text">  Mybatis-Plus</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#特性"><span class="post-toc-text">特性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#框架结构"><span class="post-toc-text">框架结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用"><span class="post-toc-text">使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、安装"><span class="post-toc-text">1、安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置"><span class="post-toc-text">配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#测试"><span class="post-toc-text">测试</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#注解"><span class="post-toc-text">注解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#TableName"><span class="post-toc-text">@TableName</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#TableId"><span class="post-toc-text">@TableId</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#IdType"><span class="post-toc-text">IdType</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#TableField"><span class="post-toc-text">@TableField</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#FiledStrategy"><span class="post-toc-text">FiledStrategy</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#FileFill"><span class="post-toc-text">FileFill</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Version"><span class="post-toc-text">@Version</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#EnumValue"><span class="post-toc-text">EnumValue</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#TableLogic"><span class="post-toc-text">TableLogic</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#SqlParser"><span class="post-toc-text">SqlParser</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#keySequence"><span class="post-toc-text">@keySequence</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#核心功能"><span class="post-toc-text">核心功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#代码生成器"><span class="post-toc-text">代码生成器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#添加依赖"><span class="post-toc-text">添加依赖</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#编写配置"><span class="post-toc-text">编写配置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#自定义模板引擎"><span class="post-toc-text">自定义模板引擎</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#自定义代码模板"><span class="post-toc-text">自定义代码模板</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#自定义属性注入"><span class="post-toc-text">自定义属性注入</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#字段其他字段查询注入"><span class="post-toc-text">字段其他字段查询注入</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CRUD接口"><span class="post-toc-text">CRUD接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Service-CRUD接口"><span class="post-toc-text">Service CRUD接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Save"><span class="post-toc-text">Save</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#SaveOrUpdate"><span class="post-toc-text">SaveOrUpdate</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Remove"><span class="post-toc-text">Remove</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Update"><span class="post-toc-text">Update</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Get"><span class="post-toc-text">Get</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#List"><span class="post-toc-text">List</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Page"><span class="post-toc-text">Page</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Count"><span class="post-toc-text">Count</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Chain"><span class="post-toc-text">Chain</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Mapper-CRUD接口"><span class="post-toc-text">Mapper CRUD接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Insert"><span class="post-toc-text">Insert</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Delete"><span class="post-toc-text">Delete</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Select"><span class="post-toc-text">Select</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mybatis-Plus"><span class="post-toc-text">  Mybatis-Plus</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#特性"><span class="post-toc-text">特性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#框架结构"><span class="post-toc-text">框架结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用"><span class="post-toc-text">使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、安装"><span class="post-toc-text">1、安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、配置"><span class="post-toc-text">2、配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、测试"><span class="post-toc-text">3、测试</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、注解"><span class="post-toc-text">4、注解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-1-TableName"><span class="post-toc-text">4.1 @TableName</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-2-TableId"><span class="post-toc-text">4.2 @TableId</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-2-1-IdType"><span class="post-toc-text">4.2.1 IdType</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-3-TableField"><span class="post-toc-text">4.3 @TableField</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-3-1-FiledStrategy"><span class="post-toc-text">4.3.1 FiledStrategy</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-3-2-FileFill"><span class="post-toc-text">4.3.2 FileFill</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-4-Version"><span class="post-toc-text">4.4 @Version</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-4-1-EnumValue"><span class="post-toc-text">4.4.1 EnumValue</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-4-2-TableLogic"><span class="post-toc-text">4.4.2 TableLogic</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-4-3-SqlParser"><span class="post-toc-text">4.4.3 SqlParser</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-5-keySequence"><span class="post-toc-text">4.5 @keySequence</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#核心功能"><span class="post-toc-text">核心功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、代码生成器"><span class="post-toc-text">1、代码生成器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-1-添加依赖"><span class="post-toc-text">1.1 添加依赖</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-2-编写配置"><span class="post-toc-text">1.2  编写配置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-3-自定义模板引擎"><span class="post-toc-text">1.3 自定义模板引擎</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-4-自定义代码模板"><span class="post-toc-text">1.4 自定义代码模板</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-5-自定义属性注入"><span class="post-toc-text">1.5 自定义属性注入</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-6-字段其他字段查询注入"><span class="post-toc-text">1.6 字段其他字段查询注入</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、CRUD接口"><span class="post-toc-text">2、CRUD接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-1-Service-CRUD接口"><span class="post-toc-text">2.1 Service CRUD接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-1-1-Save"><span class="post-toc-text">2.1.1  Save</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-1-2-SaveOrUpdate"><span class="post-toc-text">2.1.2  SaveOrUpdate</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-1-3-Remove"><span class="post-toc-text">2.1.3 Remove</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-1-4-Update"><span class="post-toc-text">2.1.4 Update</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-1-5-Get"><span class="post-toc-text">2.1.5 Get</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-1-6-List"><span class="post-toc-text">2.1.6 List</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-1-7-Page"><span class="post-toc-text">2.1.7 Page</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-1-8-Count"><span class="post-toc-text">2.1.8 Count</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-1-9-Chain"><span class="post-toc-text">2.1.9  Chain</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-2-Mapper-CRUD接口"><span class="post-toc-text">2.2 Mapper CRUD接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-2-1-Insert"><span class="post-toc-text">2.2.1 Insert</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-2-2-Delete"><span class="post-toc-text">2.2.2 Delete</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-2-4-Select"><span class="post-toc-text">2.2.4 Select</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-2-5-mapper层-选装件"><span class="post-toc-text">2.2.5 mapper层 选装件</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
         </nav>
     </aside>
     
