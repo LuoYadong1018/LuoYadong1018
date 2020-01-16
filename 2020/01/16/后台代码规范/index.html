@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Java开发规范 | Never Give Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="lyd,lyd's Blog">
+  
+  <meta name="description" content="JAVA 开发规范 v1.0.0 2019/09/06  本篇规范基于阿里巴巴、华为的开发手册，添加了我们团队的开发风格规范，补充了一些细节。感谢前人的经验和付出，让我们可以有机会站在巨人的肩膀上眺望星辰大海。 规范不是为了约束和禁锢大家的创造力，而是为了帮助大家能够在正确的道路上，尽可能的避免踩坑和跑偏。规范可以让我们无论单枪匹马还是与众人同行的时候都能得心应手。规范可以让我们在面对日益变态的需">
+<meta name="keywords" content="规范,Java,后台">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java开发规范">
+<meta property="og:url" content="http://luoyd.cn/2020/01/16/后台代码规范/index.html">
+<meta property="og:site_name" content="Never Give Up">
+<meta property="og:description" content="JAVA 开发规范 v1.0.0 2019/09/06  本篇规范基于阿里巴巴、华为的开发手册，添加了我们团队的开发风格规范，补充了一些细节。感谢前人的经验和付出，让我们可以有机会站在巨人的肩膀上眺望星辰大海。 规范不是为了约束和禁锢大家的创造力，而是为了帮助大家能够在正确的道路上，尽可能的避免踩坑和跑偏。规范可以让我们无论单枪匹马还是与众人同行的时候都能得心应手。规范可以让我们在面对日益变态的需">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-16T08:09:44.216Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java开发规范">
+<meta name="twitter:description" content="JAVA 开发规范 v1.0.0 2019/09/06  本篇规范基于阿里巴巴、华为的开发手册，添加了我们团队的开发风格规范，补充了一些细节。感谢前人的经验和付出，让我们可以有机会站在巨人的肩膀上眺望星辰大海。 规范不是为了约束和禁锢大家的创造力，而是为了帮助大家能够在正确的道路上，尽可能的避免踩坑和跑偏。规范可以让我们无论单枪匹马还是与众人同行的时候都能得心应手。规范可以让我们在面对日益变态的需">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Never give up</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                    <a  href="/biubiu">
+                        <i class="fa fa-heart"></i>
+                        <span>BiuBiu</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="https://cdn.jsdelivr.net/gh/LuoYadong1018/cdn@1.2/img/auther.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Never give up
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        Java开发攻城狮
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//luoyd.cn">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="https://github.com/LuoYadong1018">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="https://weibo.com/6662599586/profile?topnav=1&wvr=6">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-后台代码规范" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Java开发规范
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-01-16
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="JAVA-开发规范"><a href="#JAVA-开发规范" class="headerlink" title="JAVA 开发规范"></a>JAVA 开发规范</h1><blockquote>
+<p><em>v1.0.0 2019/09/06</em></p>
+</blockquote>
+<p>本篇规范基于阿里巴巴、华为的开发手册，添加了我们团队的开发风格规范，补充了一些细节。感谢前人的经验和付出，让我们可以有机会站在巨人的肩膀上眺望星辰大海。</p>
+<p>规范不是为了约束和禁锢大家的创造力，而是为了帮助大家能够在正确的道路上，尽可能的避免踩坑和跑偏。<br>规范可以让我们无论单枪匹马还是与众人同行的时候都能得心应手。<br>规范可以让我们在面对日益变态的需求和做代码接盘侠的时候，更优雅从容。</p>
+<p>规则并不是完美的，通过约束和禁止在特定情况下的特性，可能会对代码实现造成影响。<br>但是我们制定规则的目的：<strong>为了大多数程序员小伙伴可以得到更多的好处</strong>，如果在团队实际运作中认为某个规则无法遵循或有更好的做法，希望大家可以共同改进该规范。</p>
+<h2 id="一、编程规范"><a href="#一、编程规范" class="headerlink" title="一、编程规范"></a>一、编程规范</h2><h3 id="1、好代码的原则"><a href="#1、好代码的原则" class="headerlink" title="1、好代码的原则"></a>1、好代码的原则</h3><p>我们参考 Kent Beck 的简单设计四原则来指导我们的如何写出优秀的代码，如何有效地判断我们的代码是优秀的。</p>
+<ul>
+<li>通过所有测试（Passes its tests）：强调的是外部需求，这是代码实现最重要的</li>
+<li>尽可能消除重复 (Minimizes duplication)：代码的模块架构设计，保证代码的正交性，保证代码更容易修改</li>
+<li>尽可能清晰表达 (Maximizes clarity)：代码的可阅读性，保证代码是容易阅读的</li>
+<li>更少代码元素 (Has fewer elements)：保证代码是简洁的，在简洁和表达力之间，我们更看重表达力</li>
+</ul>
+<p>以上四个原则的重要程度依次降低， 这组定义被称做简单设计原则。</p>
+<h3 id="2、项目命名规范"><a href="#2、项目命名规范" class="headerlink" title="2、项目命名规范"></a>2、项目命名规范</h3><p>全部采用小写方式， 以中划线分隔。</p>
+<p>正例：<code>mall-management-system / order-service-client / user-api</code></p>
+<p>反例：<code>mall_management-system / mallManagementSystem / orderServiceClient</code></p>
+<h3 id="3、TODO-FIXME-规范"><a href="#3、TODO-FIXME-规范" class="headerlink" title="3、TODO/FIXME 规范"></a>3、TODO/FIXME 规范</h3><p><code>TODO/TBD(to be determined)</code> 注释一般用来描述已知待改进、待补充的修改点,并且加上作者名称。<br><code>FIXME</code> 注释一般用来描述已知缺陷，它们都应该有统一风格，方便文本搜索统一处理。如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// TODO &lt;author-name&gt;: 补充XX处理</span></span><br><span class="line"><span class="comment">// FIXME &lt;author-name&gt;: XX缺陷</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4、方法参数规范"><a href="#4、方法参数规范" class="headerlink" title="4、方法参数规范"></a>4、方法参数规范</h3><p>无论是 <code>controller，service，manager，dao</code> 亦或是其他的代码，每个方法最多 <code>3</code> 个参数，如果超出 <code>3</code> 个参数的话，要封装成 <code>javabean</code> 对象。  </p>
+<ol>
+<li>方便他人调用，降低出错几率。尤其是当参数是同一种类型，仅仅依靠顺序区分，稍有不慎便是灾难性后果，而且排查起来也极其恶心。  </li>
+<li>保持代码整洁、清晰度。当一个个方法里充斥着一堆堆参数的时候，再坚强的人，也会身心疲惫。</li>
+</ol>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 使用证书加密数据工具方法</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> param</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> password 加密密码</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> priCert 私钥</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> pubCert 公钥</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> 返回加密后的字符串</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">signEnvelop</span><span class="params">(JdRequestParam param, String password, String priCert, String pubCert)</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、注释规范"><a href="#5、注释规范" class="headerlink" title="5、注释规范"></a>5、注释规范</h3><h4 id="5-1、注释和代码一样重要"><a href="#5-1、注释和代码一样重要" class="headerlink" title="5-1、注释和代码一样重要"></a>5-1、注释和代码一样重要</h4><p>注释是我们披荆斩棘历经磨难翻越需求这座大山时，留下的踪迹和收获的经验教训，这些宝贵的知识除了证明我们曾经存在过，也提醒着后来的人们殷鉴不远、继往开来。</p>
+<p>注释除了说明作用、逻辑之外。还有一个很重要的原因：当业务逻辑过于复杂，代码过于庞大的时候，注释就变成了一道道美化环境、分离与整理逻辑思路的路标。这是很重要的一点，它能有效得帮助我们免于陷入代码与业务逻辑的泥沼之中。</p>
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 开始抽奖方法</span></span><br><span class="line"><span class="comment">* 保存中奖信息、奖励用户积分等</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> luckDrawDTO</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> ResponseDTO 返回中奖信息</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ResponseDTO&lt;String&gt; <span class="title">startLuckDraw</span><span class="params">(LuckDrawDTO luckDrawDTO)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// -------------- 1、校验抽奖活动基本信息 ------------------------</span></span><br><span class="line">    xxx伪代码一顿操作</span><br><span class="line"></span><br><span class="line">    <span class="comment">// -------------- 2、新增抽奖记录 -------------------------------</span></span><br><span class="line">    xxx伪代码一顿操作</span><br><span class="line"></span><br><span class="line">    <span class="comment">// -------------- 3、如果需要消耗积分，则扣除钢镚积分 -------------</span></span><br><span class="line">    xxx伪代码一顿操作</span><br><span class="line"></span><br><span class="line">    <span class="comment">// -------------- 4、获取奖品信息，开始翻滚吧 --------------------</span></span><br><span class="line">    xxx伪代码一顿操作</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ResponseDTO.succ(luckDrawPrizeVO);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-2、注释和代码的一致性"><a href="#5-2、注释和代码的一致性" class="headerlink" title="5-2、注释和代码的一致性"></a>5-2、注释和代码的一致性</h4><p>注释并不是越多越好，当注释过多，维护代码的同时，还需要维护注释，不仅变成了一种负担，也与我们当初添加注释的初衷背道而驰。  </p>
+<p>首先：大家应该通过清晰的逻辑架构，好的变量命名来提高代码可读性；需要的时候，才辅以注释说明。注释是为了帮助阅读者快速读懂代码，所以要从读者的角度出发，按需注释。注释内容要简洁、明了、无二义性，信息全面且不冗余。</p>
+<p>其次：无论是修改、复制代码时，都要仔细核对注释内容是否正确。只改代码，不改注释是一种不文明行为，破坏了代码与注释的一致性，会让阅读者迷惑、费解，甚至误解。</p>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询部门</span></span><br><span class="line">EmployeeDTO employee = employeeDao.listByDeptId(deptId);</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-3、方法注释"><a href="#5-3、方法注释" class="headerlink" title="5-3、方法注释"></a>5-3、方法注释</h4><p>方法要尽量通过方法名自解释，不要写无用、信息冗余的方法头，不要写空有格式的方法头注释。</p>
+<p>方法头注释内容可选，但不限于：功能说明、返回值，用法、算法实现等等。尤其是对外的方法接口声明，其注释，应当将重要、有用的信息表达清楚。</p>
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 解析转换时间字符串为 LocalDate 时间类</span></span><br><span class="line"><span class="comment"> * 调用前必须校验字符串格式 否则可能造成解析失败的错误异常</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> dateStr 必须是 yyyy-MM-dd 格式的字符串</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> LocalDate</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LocalDate <span class="title">parseYMD</span><span class="params">(String dateStr)</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 校验对象</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> t</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> String</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">String <span class="title">checkObj</span><span class="params">(T t)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>反例中出现的问题：</p>
+<ul>
+<li>方法注释没有说明具体的作用、使用事项。</li>
+<li>参数、返回值，空有格式没内容。这是非常重要一点，任何人调用任何方法之前都需要知道方法对参数的要求，以及返回值是什么。</li>
+</ul>
+<h2 id="二、项目规范"><a href="#二、项目规范" class="headerlink" title="二、项目规范"></a>二、项目规范</h2><h3 id="1、代码目录结构"><a href="#1、代码目录结构" class="headerlink" title="1、代码目录结构"></a>1、代码目录结构</h3><p>统一的目录结构是所有项目的基础。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">src                               源码目录</span><br><span class="line">|-- common                            各个项目的通用类库</span><br><span class="line">|-- config                            项目的配置信息</span><br><span class="line">|-- constant                          全局公共常量</span><br><span class="line">|-- handler                           全局处理器</span><br><span class="line">|-- interceptor                       全局连接器</span><br><span class="line">|-- listener                          全局监听器</span><br><span class="line">|-- module                            各个业务</span><br><span class="line">|-- |--- employee                         员工模块</span><br><span class="line">|-- |--- role                             角色模块</span><br><span class="line">|-- |--- login                            登录模块</span><br><span class="line">|-- third                             三方服务，比如redis, oss，微信sdk等等</span><br><span class="line">|-- util                              全局工具类</span><br><span class="line">|-- Application.java                  启动类</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、common-目录规范"><a href="#2、common-目录规范" class="headerlink" title="2、common 目录规范"></a>2、common 目录规范</h3><p>common 目录用于存放各个项目通用的项目，但是又可以依照项目进行特定的修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">src 源码目录</span><br><span class="line">|-- common 各个项目的通用类库</span><br><span class="line">|-- |--- anno          通用注解，比如权限，登录等等</span><br><span class="line">|-- |--- constant      通用常量，比如 ResponseCodeConst</span><br><span class="line">|-- |--- domain        全局的 javabean，比如 BaseEntity,PageParamDTO 等</span><br><span class="line">|-- |--- exception     全局异常，如 BusinessException</span><br><span class="line">|-- |--- json          json 类库，如 LongJsonDeserializer，LongJsonSerializer</span><br><span class="line">|-- |--- swagger       swagger 文档</span><br><span class="line">|-- |--- validator     适合各个项目的通用 validator，如 CheckEnum，CheckBigDecimal 等</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、config-目录规范"><a href="#3、config-目录规范" class="headerlink" title="3、config 目录规范"></a>3、config 目录规范</h3><p>config 目录用于存放各个项目通用的项目，但是又可以依照项目进行特定的修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">src                               源码目录</span><br><span class="line">|-- config                            项目的所有配置信息</span><br><span class="line">|-- |--- MvcConfig                    mvc的相关配置，如interceptor,filter等</span><br><span class="line">|-- |--- DataSourceConfig             数据库连接池的配置</span><br><span class="line">|-- |--- MybatisConfig                mybatis的配置</span><br><span class="line">|-- |--- ....                         其他</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、module-目录规范"><a href="#4、module-目录规范" class="headerlink" title="4、module 目录规范"></a>4、module 目录规范</h3><p>module 目录里写项目的各个业务，每个业务一个独立的顶级文件夹，在文件里进行 mvc 的相关划分。<br>其中，domain 包里存放 entity, dto, vo，bo 等 javabean 对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">src</span><br><span class="line">|-- module                         所有业务模块</span><br><span class="line">|-- |-- role                          角色模块</span><br><span class="line">|-- |-- |--RoleController.java              controller</span><br><span class="line">|-- |-- |--RoleConst.java                   role相关的常量</span><br><span class="line">|-- |-- |--RoleService.java                 service</span><br><span class="line">|-- |-- |--RoleDao.java                     dao</span><br><span class="line">|-- |-- |--domain                           domain</span><br><span class="line">|-- |-- |-- |-- RoleEntity.java                  表对应实体</span><br><span class="line">|-- |-- |-- |-- RoleDTO.java                     dto对象</span><br><span class="line">|-- |-- |-- |-- RoleVO.java                      返回对象</span><br><span class="line">|-- |-- employee                      员工模块</span><br><span class="line">|-- |-- login                         登录模块</span><br><span class="line">|-- |-- email                         邮件模块</span><br><span class="line">|-- |-- ....                          其他</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、-domain-包中的-javabean-命名规范"><a href="#5、-domain-包中的-javabean-命名规范" class="headerlink" title="5、 domain 包中的 javabean 命名规范"></a>5、 domain 包中的 javabean 命名规范</h3><p>1） <code>javabean</code> 的整体要求：</p>
+<ul>
+<li>不得有任何的业务逻辑或者计算</li>
+<li>基本数据类型必须使用包装类型<code>（Integer, Double、Boolean 等）</code></li>
+<li>不允许有任何的默认值</li>
+<li>每个属性必须添加注释，并且必须使用多行注释。</li>
+<li>必须使用 <code>lombok</code> 简化 <code>getter/setter</code> 方法</li>
+<li>建议对象使用 <code>lombok</code> 的 <code>@Builder ，@NoArgsConstructor</code>，同时使用这两个注解，简化对象构造方法以及set方法。</li>
+</ul>
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoDTO</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用示例：</span></span><br><span class="line"></span><br><span class="line">DemoDTO demo = DemoDTO.builder()</span><br><span class="line">                .name(<span class="string">"yeqiu"</span>)</span><br><span class="line">                .age(<span class="number">66</span>)</span><br><span class="line">                .build();</span><br></pre></td></tr></table></figure>
+
+<p>2）数据对象；<code>XxxxEntity</code>，要求：</p>
+<ul>
+<li>以 <code>Entity</code> 为结尾（阿里是为 DO 为结尾）</li>
+<li>Xxxx 与数据库表名保持一致</li>
+<li>类中字段要与数据库字段保持一致，不能缺失或者多余</li>
+<li>类中的每个字段添加注释，并与数据库注释保持一致</li>
+<li>不允许有组合</li>
+<li>项目内的日期类型必须统一，建议使用 <code>java.util.Date，java.sql.Timestamp，java.time.LocalDateTime</code> 其中只一。</li>
+</ul>
+<p>3）传输对象；<code>XxxxDTO</code>，要求：</p>
+<ul>
+<li>不可以继承自 <code>Entity</code></li>
+<li><code>DTO</code> 可以继承、组合其他 <code>DTO，VO，BO</code> 等对象</li>
+<li><code>DTO</code> 只能用于前端、RPC 的请求参数</li>
+</ul>
+<p>3）视图对象；<code>XxxxVO</code>，要求：</p>
+<ul>
+<li>不可继承自 <code>Entity</code></li>
+<li><code>VO</code> 可以继承、组合其他 <code>DTO，VO，BO</code> 等对象</li>
+<li><code>VO</code> 只能用于返回前端、rpc 的业务数据封装对象</li>
+</ul>
+<p>4）业务对象 <code>BO</code>，要求：</p>
+<ul>
+<li>不可以继承自 <code>Entity</code></li>
+<li><code>BO</code> 对象只能用于 <code>service，manager，dao</code> 层，不得用于 <code>controller</code> 层</li>
+</ul>
+<h2 id="三、MVC-规范"><a href="#三、MVC-规范" class="headerlink" title="三、MVC 规范"></a>三、MVC 规范</h2><h3 id="1、整体分层"><a href="#1、整体分层" class="headerlink" title="1、整体分层"></a>1、整体分层</h3><ul>
+<li>controller 层</li>
+<li>service 层</li>
+<li>manager 层</li>
+<li>dao 层</li>
+</ul>
+<h3 id="2、-controller-层规范"><a href="#2、-controller-层规范" class="headerlink" title="2、 controller 层规范"></a>2、 <code>controller</code> 层规范</h3><p>1） 只允许在 method 上添加 <code>RequestMapping</code> 注解，不允许加在 class 上（为了方便的查找 url，放到 url 不能一次性查找出来）</p>
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DepartmentController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/department/list"</span>)</span><br><span class="line">    <span class="keyword">public</span> ResponseDTO&lt;List&lt;DepartmentVO&gt;&gt; listDepartment() &#123;</span><br><span class="line">        <span class="keyword">return</span> departmentService.listDepartment();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span> (<span class="string">"/department"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DepartmentController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/list"</span>)</span><br><span class="line">    <span class="keyword">public</span> ResponseDTO&lt;List&lt;DepartmentVO&gt;&gt; listDepartment() &#123;</span><br><span class="line">        <span class="keyword">return</span> departmentService.listDepartment();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>2）不推荐使用 rest 命名 url， 只能使用 <code>get/post</code> 方法。url 命名上规范如下：</p>
+<blockquote>
+<p><em>虽然 Rest 大法好，但是有时并不能一眼根据 url 看出来是什么操作，所以我们选择了后者，这个没有对与错，只有哪个更适合我们的团队。</em></p>
+</blockquote>
+<p><code>/业务模块/子模块/动作</code></p>
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET  /department/get/&#123;id&#125;      查询某个部门详细信息</span><br><span class="line">POST /department/query         复杂查询</span><br><span class="line">POST /department/add           添加部门</span><br><span class="line">POST /department/update        更新部门</span><br><span class="line">GET  /department/delete/&#123;id&#125;   删除部门</span><br></pre></td></tr></table></figure>
+
+<p>3）每个方法必须添加 <code>swagger</code> 文档注解 <code>@ApiOperation</code> ，并填写接口描述信息，描述最后必须加上作者信息 <code>@author 哪吒</code> 。</p>
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(<span class="string">"更新部门信息 @author 哪吒"</span>)</span><br><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/department/update"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ResponseDTO&lt;String&gt; <span class="title">updateDepartment</span><span class="params">(@Valid @RequestBody DeptUpdateDTO deptUpdateDTO)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> departmentService.updateDepartment(deptUpdateDTO);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4）controller 负责协同和委派业务，充当路由的角色，每个方法要保持简洁：</p>
+<ul>
+<li>不做任何的业务逻辑操作</li>
+<li>不做任何的参数、业务校验，参数校验只允许使用@Valid 注解做简单的校验</li>
+<li>不做任何的数据组合、拼装、赋值等操作</li>
+</ul>
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(<span class="string">"添加部门 @author 哪吒"</span>)</span><br><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/department/add"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ResponseDTO&lt;String&gt; <span class="title">addDepartment</span><span class="params">(@Valid @RequestBody DepartmentCreateDTO departmentCreateDTO)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> departmentService.addDepartment(departmentCreateDTO);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>5）只能在 <code>controller</code> 层获取当前请求用户，并传递给 <code>service</code> 层。</p>
+<blockquote>
+<p><em>因为获取当前请求用户是从 ThreadLocal 里获取取的，在 service、manager、dao 层极有可能是其他非 request 线程调用，会出现 null 的情况，尽量避免</em></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(<span class="string">"添加员工 @author yandanyang"</span>)</span><br><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/employee/add"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ResponseDTO&lt;String&gt; <span class="title">addEmployee</span><span class="params">(@Valid @RequestBody EmployeeAddDTO employeeAddDTO)</span> </span>&#123;</span><br><span class="line">    LoginTokenBO requestToken = SmartRequestTokenUtil.getRequestUser();</span><br><span class="line">    <span class="keyword">return</span> employeeService.addEmployee(employeeAddDTO, requestToken);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、-service-层规范"><a href="#3、-service-层规范" class="headerlink" title="3、 service 层规范"></a>3、 <code>service</code> 层规范</h3><p>1）合理拆分 service 文件，如果业务较大，请拆分为多个 service。</p>
+<p>如订单业务,所有业务都写到 OrderService 中会导致文件过大，故需要进行拆分如下：</p>
+<ul>
+<li><code>OrderQueryService</code> 订单查询业务</li>
+<li><code>OrderCreateService</code> 订单新建业务</li>
+<li><code>OrderDeliverService</code> 订单发货业务</li>
+<li><code>OrderValidatorService</code> 订单验证业务</li>
+</ul>
+<p>2）谨慎处理 <code>@Transactional</code> 事务注解的使用，不要简单对 <code>service</code> 的方法添加个 <code>@Transactional</code> 注解就觉得万事大吉了。应当合并对数据库的操作，尽量减少添加了<code>@Transactional</code>方法内的业务逻辑。<br><code>@Transactional</code> 注解内的 <code>rollbackFor</code> 值必须使用异常的基类 <code>Throwable.class</code></p>
+<blockquote>
+<p><em>对于@Transactional 注解，当 spring 遇到该注解时，会自动从数据库连接池中获取 connection，并开启事务然后绑定到 ThreadLocal 上，如果业务并没有进入到最终的 操作数据库环节，那么就没有必要获取连接并开启事务，应该直接将 connection 返回给数据库连接池，供其他使用（比较难以讲解清楚，如果不懂的话就主动去问）。</em></p>
+</blockquote>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span>(rollbackFor = Throwable.class)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ResponseDTO&lt;String&gt; <span class="title">upOrDown</span><span class="params">(Long departmentId, Long swapId)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 验证 1</span></span><br><span class="line">    DepartmentEntity departmentEntity = departmentDao.selectById(departmentId);</span><br><span class="line">    <span class="keyword">if</span> (departmentEntity == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> ResponseDTO.wrap(DepartmentResponseCodeConst.NOT_EXISTS);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 验证 2</span></span><br><span class="line">    DepartmentEntity swapEntity = departmentDao.selectById(swapId);</span><br><span class="line">    <span class="keyword">if</span> (swapEntity == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> ResponseDTO.wrap(DepartmentResponseCodeConst.NOT_EXISTS);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 验证 3</span></span><br><span class="line">    Long count = employeeDao.countByDepartmentId(departmentId)</span><br><span class="line">    <span class="keyword">if</span> (count != <span class="keyword">null</span> &amp;&amp; count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> ResponseDTO.wrap(DepartmentResponseCodeConst.EXIST_EMPLOYEE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 操作数据库 4</span></span><br><span class="line">    Long departmentSort = departmentEntity.getSort();</span><br><span class="line">    departmentEntity.setSort(swapEntity.getSort());</span><br><span class="line">    departmentDao.updateById(departmentEntity);</span><br><span class="line">    swapEntity.setSort(departmentSort);</span><br><span class="line">    departmentDao.updateById(swapEntity);</span><br><span class="line">    <span class="keyword">return</span> ResponseDTO.succ();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上代码前三步都是使用 connection 进行验证操作，由于方法上有@Transactional 注解，所以这三个验证都是使用的同一个 connection。</p>
+<p>若对于复杂业务、复杂的验证逻辑，会导致整个验证过程始终占用该 connection 连接，占用时间可能会很长，直至方法结束，connection 才会交还给数据库连接池。</p>
+<p>对于复杂业务的不可预计的情况，长时间占用同一个 connection 连接不是好的事情，应该尽量缩短占用时间。</p>
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">DepartmentService.java</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> ResponseDTO&lt;String&gt; <span class="title">upOrDown</span><span class="params">(Long departmentId, Long swapId)</span> </span>&#123;</span><br><span class="line">    DepartmentEntity departmentEntity = departmentDao.selectById(departmentId);</span><br><span class="line">    <span class="keyword">if</span> (departmentEntity == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> ResponseDTO.wrap(DepartmentResponseCodeConst.NOT_EXISTS);</span><br><span class="line">    &#125;</span><br><span class="line">    DepartmentEntity swapEntity = departmentDao.selectById(swapId);</span><br><span class="line">    <span class="keyword">if</span> (swapEntity == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> ResponseDTO.wrap(DepartmentResponseCodeConst.NOT_EXISTS);</span><br><span class="line">    &#125;</span><br><span class="line">    Long count = employeeDao.countByDepartmentId(departmentId)</span><br><span class="line">    <span class="keyword">if</span> (count != <span class="keyword">null</span> &amp;&amp; count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> ResponseDTO.wrap(DepartmentResponseCodeConst.EXIST_EMPLOYEE);</span><br><span class="line">    &#125;</span><br><span class="line">    departmentManager.upOrDown(departmentSort,swapEntity);</span><br><span class="line">    <span class="keyword">return</span> ResponseDTO.succ();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DepartmentManager.java</span><br><span class="line"></span><br><span class="line"><span class="meta">@Transactional</span>(rollbackFor = Throwable.class)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">upOrDown</span><span class="params">(DepartmentEntity departmentEntity ,DepartmentEntity swapEntity)</span></span>&#123;</span><br><span class="line">    Long departmentSort = departmentEntity.getSort();</span><br><span class="line">    departmentEntity.setSort(swapEntity.getSort());</span><br><span class="line">    departmentDao.updateById(departmentEntity);</span><br><span class="line">    swapEntity.setSort(departmentSort);</span><br><span class="line">    departmentDao.updateById(swapEntity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将数据在 service 层准备好，然后传递给 manager 层，由 manager 层添加@Transactional 进行数据库操作。</p>
+<p>3）需要注意的是：注解 <code>@Transactional</code> 事务在类的内部方法调用是不会生效的</p>
+<p>反例：如果发生异常，saveData方法上的事务注解并不会起作用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderService</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createOrder</span><span class="params">(OrderCreateDTO createDTO)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.saveData(createDTO);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Transactional</span>(rollbackFor = Throwable.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveData</span><span class="params">(OrderCreateDTO createDTO)</span></span>&#123;</span><br><span class="line">        orderDao.insert(createDTO);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><em>Spring采用动态代理(AOP)实现对bean的管理和切片，它为我们的每个class生成一个代理对象。只有在代理对象之间进行调用时，可以触发切面逻辑。而在同一个class中，方法A调用方法B，调用的是原对象的方法，而不通过代理对象。所以Spring无法拦截到这次调用，也就无法通过注解保证事务了。简单来说，在同一个类中的方法调用，不会被方法拦截器拦截到，因此事务不会起作用。</em></p>
+</blockquote>
+<p>解决方案：</p>
+<ol>
+<li>可以将方法放入另一个类，如新增 <code>manager层</code>，通过spring注入，这样符合了在对象之间调用的条件。</li>
+<li>启动类添加<code>@EnableAspectJAutoProxy(exposeProxy = true)</code>，方法内使用<code>AopContext.currentProxy()</code>获得代理类，使用事务。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SpringBootApplication.java</span><br><span class="line"></span><br><span class="line"><span class="meta">@EnableAspectJAutoProxy</span>(exposeProxy = <span class="keyword">true</span>)</span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringBootApplication</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">OrderService.java</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createOrder</span><span class="params">(OrderCreateDTO createDTO)</span></span>&#123;</span><br><span class="line">    OrderService orderService = (OrderService)AopContext.currentProxy();</span><br><span class="line">    orderService.saveData(createDTO);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4）service是具体的业务处理逻辑服务层，尽量避免将web层某些参数传递到service中。  </p>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> ResponseDTO&lt;String&gt; <span class="title">handlePinganRequest</span><span class="params">(HttpServletRequest request)</span></span>&#123;</span><br><span class="line">    InputStreamReader inputStreamReader = <span class="keyword">new</span> InputStreamReader(request.getInputStream(), <span class="string">"GBK"</span>);</span><br><span class="line">    BufferedReader reader = <span class="keyword">new</span> BufferedReader(inputStreamReader);</span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    String str;</span><br><span class="line">    <span class="keyword">while</span> ((str = reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">        sb.append(str);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!JSON.isValid(msg))&#123;</span><br><span class="line">      <span class="keyword">return</span> ResponseDTO.wrap(ResponseCodeConst.ERROR_PARAM);</span><br><span class="line">    &#125;</span><br><span class="line">    PinganMsgDTO PinganMsgDTO = JSON.parseObject(msg,PinganMsgDTO.class);</span><br><span class="line">    <span class="comment">// 示例结束</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>反例中出现的问题：</p>
+<ul>
+<li>反例中把 <code>HttpServletRequest</code> 传递到service中，是为了获取Request流中的字符信息，然后才是真正的业务处理。按照分层的初衷：将代码、业务逻辑解耦，正确的做法应该是<code>handlePinganRequest</code>方法将<code>String</code>字符作为参数直接处理业务，将从<code>Request</code>中获取字符的操作放入<code>controller</code>中。</li>
+<li>另一个坏处是不方便做单元测试，还得一个<code>new</code>一个<code>HttpServletRequest</code>并制造一个<code>InputStream</code>，然而这样做并不能模拟到真实的业务情景及数据。</li>
+</ul>
+<h3 id="4、-manager-层规范"><a href="#4、-manager-层规范" class="headerlink" title="4、 manager 层规范"></a>4、 manager 层规范</h3><p>manager 层的作用(引自《阿里 java 手册》)：</p>
+<ul>
+<li>对第三方平台封装的层，预处理返回结果及转化异常信息；</li>
+<li>对 Service 层通用能力的下沉，如缓存方案、中间件通用处理；</li>
+<li>与 DAO 层交互，对多个 DAO 的组合复用。</li>
+</ul>
+<h3 id="5、-dao-层规范"><a href="#5、-dao-层规范" class="headerlink" title="5、 dao 层规范"></a>5、 dao 层规范</h3><p>优先使用 mybatis-plus 框架。如果需要多个数据源操作的，可以选择使用 SmartDb 框架。</p>
+<p>1）所有 Dao 继承自 BaseMapper</p>
+<p>2）禁止使用 Mybatis-plus 的 Wrapper 条件构建器</p>
+<p>3）禁止直接在 mybatis xml 中写死常量，应从 dao 中传入到 xml 中</p>
+<p>3）建议不要使用星号 <code>*</code> 代替所有字段</p>
+<p>正例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    NoticeDao.java</span><br><span class="line"></span><br><span class="line">    Integer noticeCount(@Param("sendStatus") Integer sendStatus);</span><br><span class="line">---------------------------------------------</span><br><span class="line">    NoticeMapper.xml</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"noticeCount"</span> <span class="attr">resultType</span>=<span class="string">"integer"</span>&gt;</span></span><br><span class="line">        select</span><br><span class="line">        count(1)</span><br><span class="line">        from t_notice</span><br><span class="line">        where</span><br><span class="line">        send_status = #&#123;sendStatus&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    NoticeDao.java</span><br><span class="line"></span><br><span class="line">    Integer noticeCount();</span><br><span class="line">---------------------------------------------</span><br><span class="line">    NoticeMapper.xml</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"noticeCount"</span> <span class="attr">resultType</span>=<span class="string">"integer"</span>&gt;</span></span><br><span class="line">        select</span><br><span class="line">        count(1)</span><br><span class="line">        from t_notice</span><br><span class="line">        where</span><br><span class="line">        send_status = 0</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>3）dao层方法命名规范</p>
+<ul>
+<li>获取单个对象的方法用 <code>get</code> 做前缀。</li>
+<li>获取多个对象的方法用 <code>list</code> 做前缀。</li>
+<li>获取统计值的方法用 <code>count</code> 做前缀。</li>
+<li>插入的方法用 <code>save/insert</code> 做前缀。</li>
+<li>删除的方法用 <code>remove/delete</code> 做前缀。</li>
+<li>修改的方法用 <code>update</code> 做前缀。</li>
+</ul>
+<p>建议：dao层方法命名尽量以sql语义命名，避免与业务关联。</p>
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List&lt;PerformanceDTO&gt; <span class="title">listByMonthAndItemId</span><span class="params">(@Param(<span class="string">"month"</span>)</span> String month, @<span class="title">Param</span><span class="params">(<span class="string">"itemId"</span>)</span> Integer itemId)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List&lt;PerformanceDTO&gt; <span class="title">getInternalData</span><span class="params">(@Param(<span class="string">"month"</span>)</span> String month, @<span class="title">Param</span><span class="params">(<span class="string">"itemId"</span>)</span> Integer itemId)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>反例中出现的不规范操作：</p>
+<ul>
+<li>get代表单个查询，批量查询的应该 list 开头。</li>
+<li>命名与业务关联，局限了dao方法的使用场景和范围，降低了方法的复用性，造成他人困惑以及重复造轮子。</li>
+</ul>
+<h3 id="6、boolean类型的属性命名规范"><a href="#6、boolean类型的属性命名规范" class="headerlink" title="6、boolean类型的属性命名规范"></a>6、boolean类型的属性命名规范</h3><blockquote>
+<p>类中布尔类型的变量，都不要加is，否则部分框架解析会引起序列化错误。反例：定义为基本数据类型 Boolean isDeleted；的属性，它的方法也是 isDeleted()，RPC在反向解析的时候，“以为”对应的属性名称是 deleted，导致属性获取不到，进而抛出异常。</p>
+</blockquote>
+<p>这是阿里巴巴开发手册中的原文，我们团队的规定是：<code>boolean</code> 类型的类属性和数据表字段都统一使用 <code>flag</code> 结尾。虽然使用 <code>isDeleted，is_deleted</code> 从字面语义上更直观，但是比起可能出现的潜在错误，这点牺牲还是值得的。</p>
+<p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deletedFlag，deleted_flag，onlineFlag，online_flag</span><br></pre></td></tr></table></figure>
+
+<h3 id="7、"><a href="#7、" class="headerlink" title="7、"></a>7、</h3><h2 id="四、数据库-规范"><a href="#四、数据库-规范" class="headerlink" title="四、数据库 规范"></a>四、数据库 规范</h2><h3 id="1-建表规范"><a href="#1-建表规范" class="headerlink" title="1 建表规范"></a>1 建表规范</h3><p>表必备三字段：id, create_time, update_time</p>
+<ul>
+<li>id 字段 Long 类型，单表自增，自增长度为 1</li>
+<li>create_time 字段 datetime 类型，默认值 CURRENT_TIMESTAMP</li>
+<li>update_time 字段 datetime 类型，默认值 CURRENT_TIMESTAMP, On update CURRENT_TIMESTAMP</li>
+</ul>
+<h3 id="2-枚举类表字段注释需要将所有枚举含义进行注释"><a href="#2-枚举类表字段注释需要将所有枚举含义进行注释" class="headerlink" title="2 枚举类表字段注释需要将所有枚举含义进行注释"></a>2 枚举类表字段注释需要将所有枚举含义进行注释</h3><p>修改或增加字段的状态描述，必须要及时同步更新注释。<br>如下表的 <code>sync_status</code> 字段 <code>同步状态 0 未开始 1同步中 2同步成功 3失败</code>。</p>
+<p>正例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`t_change_data`</span> (</span><br><span class="line">	<span class="string">`id`</span> <span class="built_in">BIGINT</span>(<span class="number">20</span>) <span class="keyword">UNSIGNED</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">	<span class="string">`sync_status`</span> <span class="built_in">TINYINT</span>(<span class="number">3</span>) <span class="keyword">UNSIGNED</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">'同步状态 0 未开始 1同步中 2同步成功 3失败'</span>,</span><br><span class="line">	<span class="string">`sync_time`</span> DATETIME <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'同步时间'</span>,</span><br><span class="line">	<span class="string">`create_time`</span> DATETIME <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span>,</span><br><span class="line">	<span class="string">`update_time`</span> DATETIME <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="keyword">CURRENT_TIMESTAMP</span>,</span><br><span class="line">	PRIMARY <span class="keyword">KEY</span> (<span class="string">`change_data_id`</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`t_change_data`</span> (</span><br><span class="line">	<span class="string">`id`</span> <span class="built_in">BIGINT</span>(<span class="number">20</span>) <span class="keyword">UNSIGNED</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">	<span class="string">`sync_status`</span> <span class="built_in">TINYINT</span>(<span class="number">3</span>) <span class="keyword">UNSIGNED</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">'同步状态 '</span>,</span><br><span class="line">	<span class="string">`sync_time`</span> DATETIME <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'同步时间'</span>,</span><br><span class="line">	<span class="string">`create_time`</span> DATETIME <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span>,</span><br><span class="line">	<span class="string">`update_time`</span> DATETIME <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="keyword">CURRENT_TIMESTAMP</span>,</span><br><span class="line">	PRIMARY <span class="keyword">KEY</span> (<span class="string">`change_data_id`</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-合理结合业务给表字段添加索引和唯一索引"><a href="#3-合理结合业务给表字段添加索引和唯一索引" class="headerlink" title="3 合理结合业务给表字段添加索引和唯一索引"></a>3 合理结合业务给表字段添加索引和唯一索引</h3><p>具体索引规范请参照《阿里巴巴 Java 开发手册》索引规约</p>
+<h2 id="五、其他"><a href="#五、其他" class="headerlink" title="五、其他"></a>五、其他</h2><h3 id="1、代码提交规范"><a href="#1、代码提交规范" class="headerlink" title="1、代码提交规范"></a>1、代码提交规范</h3><ul>
+<li>提交前应该冷静、仔细检查一下，确保没有忘记加入版本控制或不应该提交的文件。</li>
+<li>提交前应该先编译一次（idea里ctrl+F9），防止出现编译都报错的情况。</li>
+<li>提交前先更新pull一次代码，提交前发生冲突要比提交后发生冲突容易解决的多。</li>
+<li>提交前检查代码是否格式化，是否符合代码规范，无用的包引入、变量是否清除等等。</li>
+<li>提交时检查注释是否准确简洁的表达出了本次提交的内容。</li>
+</ul>
+<h3 id="2、maven项目"><a href="#2、maven项目" class="headerlink" title="2、maven项目"></a>2、maven项目</h3><ul>
+<li>pom禁止出现相同 groupId，artifactId 的依赖配置。</li>
+<li>项目名称应该与 artifactId 保持一致。</li>
+<li>定期检查jar包依赖关系，及时排除解决冲突的jar包。</li>
+</ul>
+<h3 id="3、保持项目整洁"><a href="#3、保持项目整洁" class="headerlink" title="3、保持项目整洁"></a>3、保持项目整洁</h3><p>使用git，必须添加 .gitignore 忽略配置文件。<br>不要提交与项目无关的内容文件：idea配置、target包等。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年01月16日 16:09</p>
+        <p>原始链接： <a class="post-url" href="/2020/01/16/后台代码规范/" title="Java开发规范">http://luoyd.cn/2020/01/16/后台代码规范/</a></p>
+        <footer>
+            <a href="http://luoyd.cn">
+                <img src="https://cdn.jsdelivr.net/gh/LuoYadong1018/cdn@1.2/img/auther.jpg" alt="罗亚东">
+                罗亚东
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://luoyd.cn/2020/01/16/后台代码规范/&title=《Java开发规范》 — Never Give Up&pic=https://cdn.jsdelivr.net/gh/LuoYadong1018/cdn@1.2/img/img1.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://luoyd.cn/2020/01/16/后台代码规范/&title=《Java开发规范》 — Never Give Up&source=没有过不去的火焰山！" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://luoyd.cn/2020/01/16/后台代码规范/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java开发规范》 — Never Give Up&url=http://luoyd.cn/2020/01/16/后台代码规范/&via=http://luoyd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://luoyd.cn/2020/01/16/后台代码规范/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://luoyd.cn/2020/01/16/后台代码规范/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/规范/" class="color3">规范</a>
+      
+    <a href="/tags/Java/" class="color5">Java</a>
+      
+    <a href="/tags/后台/" class="color3">后台</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JAVA-开发规范"><span class="post-toc-text">JAVA 开发规范</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、编程规范"><span class="post-toc-text">一、编程规范</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、好代码的原则"><span class="post-toc-text">1、好代码的原则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、项目命名规范"><span class="post-toc-text">2、项目命名规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、TODO-FIXME-规范"><span class="post-toc-text">3、TODO/FIXME 规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、方法参数规范"><span class="post-toc-text">4、方法参数规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、注释规范"><span class="post-toc-text">5、注释规范</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-1、注释和代码一样重要"><span class="post-toc-text">5-1、注释和代码一样重要</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-2、注释和代码的一致性"><span class="post-toc-text">5-2、注释和代码的一致性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-3、方法注释"><span class="post-toc-text">5-3、方法注释</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、项目规范"><span class="post-toc-text">二、项目规范</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、代码目录结构"><span class="post-toc-text">1、代码目录结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、common-目录规范"><span class="post-toc-text">2、common 目录规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、config-目录规范"><span class="post-toc-text">3、config 目录规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、module-目录规范"><span class="post-toc-text">4、module 目录规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、-domain-包中的-javabean-命名规范"><span class="post-toc-text">5、 domain 包中的 javabean 命名规范</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、MVC-规范"><span class="post-toc-text">三、MVC 规范</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、整体分层"><span class="post-toc-text">1、整体分层</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、-controller-层规范"><span class="post-toc-text">2、 controller 层规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、-service-层规范"><span class="post-toc-text">3、 service 层规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、-manager-层规范"><span class="post-toc-text">4、 manager 层规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、-dao-层规范"><span class="post-toc-text">5、 dao 层规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、boolean类型的属性命名规范"><span class="post-toc-text">6、boolean类型的属性命名规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、"><span class="post-toc-text">7、</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、数据库-规范"><span class="post-toc-text">四、数据库 规范</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-建表规范"><span class="post-toc-text">1 建表规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-枚举类表字段注释需要将所有枚举含义进行注释"><span class="post-toc-text">2 枚举类表字段注释需要将所有枚举含义进行注释</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-合理结合业务给表字段添加索引和唯一索引"><span class="post-toc-text">3 合理结合业务给表字段添加索引和唯一索引</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、其他"><span class="post-toc-text">五、其他</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、代码提交规范"><span class="post-toc-text">1、代码提交规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、maven项目"><span class="post-toc-text">2、maven项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、保持项目整洁"><span class="post-toc-text">3、保持项目整洁</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/01/16/前端代码规范/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          前端代码规范
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/12/24/Mybatis-plus/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Mybatis-plus</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 罗亚东<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://luoyd.cn",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/笔记/">笔记</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Mybatis-plus/" style="font-size: 10px;">Mybatis-plus</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/前端组件库/" style="font-size: 10px;">前端组件库</a> <a href="/tags/后台/" style="font-size: 10px;">后台</a> <a href="/tags/学生管理系统/" style="font-size: 10px;">学生管理系统</a> <a href="/tags/悦读/" style="font-size: 20px;">悦读</a> <a href="/tags/持久层框架/" style="font-size: 10px;">持久层框架</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/笔记/" style="font-size: 20px;">笔记</a> <a href="/tags/规范/" style="font-size: 15px;">规范</a> <a href="/tags/邮箱/" style="font-size: 10px;">邮箱</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/biubiu">
+                    <i class="fa fa-heart"></i><span>BiuBiu</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Mybatis-plus/" style="font-size: 10px;">Mybatis-plus</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/前端组件库/" style="font-size: 10px;">前端组件库</a> <a href="/tags/后台/" style="font-size: 10px;">后台</a> <a href="/tags/学生管理系统/" style="font-size: 10px;">学生管理系统</a> <a href="/tags/悦读/" style="font-size: 20px;">悦读</a> <a href="/tags/持久层框架/" style="font-size: 10px;">持久层框架</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/笔记/" style="font-size: 20px;">笔记</a> <a href="/tags/规范/" style="font-size: 15px;">规范</a> <a href="/tags/邮箱/" style="font-size: 10px;">邮箱</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
